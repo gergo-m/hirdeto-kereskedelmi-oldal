@@ -12,7 +12,7 @@ img {
     position: relative;
     width: 20rem;
     margin: 0 auto 0 160px;
-    padding: 0 10px;
+    padding: 0 40px;
     background: #fff;
 }
 
@@ -23,7 +23,7 @@ img {
 
 .profile-info div.textinput input {
     display: block;
-    width: 400px;
+    width: 300px;
     height: 40px;
     background: transparent;
     border: solid 1px #e1e5ee;
@@ -73,7 +73,7 @@ input:focus {
     z-index: 1;
     top: 50px;
     left: 0;
-    background-color: white;
+    background-color: transparent;
     overflow-x: hidden;
     padding-top: 20px;
 }
@@ -103,3 +103,9 @@ input:focus {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+
+/*
+.profile-info {
+    max-width: 1000px;
+    margin: auto;
+} */
