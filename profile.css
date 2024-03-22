@@ -89,9 +89,9 @@ input:focus {
 .sidenav a.active {
     color: indianred;
     background: transparent;
-    border: #ddd solid 2px;
-    border-top-color: white;
-    border-left-color: white;
+    border: #ccc solid 2px;
+    border-top: #eee solid 1px;
+    border-left: #eee solid 1px;
     border-radius: 0.5rem;
 }
 
@@ -109,3 +109,10 @@ input:focus {
     max-width: 1000px;
     margin: auto;
 } */
+
+#history-icon-big {
+    height: 35px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
