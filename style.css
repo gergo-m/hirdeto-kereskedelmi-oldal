@@ -87,9 +87,3 @@ form div.textinput input:focus + label {
 input:focus {
     outline: none;
 }
-
-
-.hs-firstname {
-    position: relative;
-    margin-top: 50px;
-}
