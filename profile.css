@@ -11,7 +11,8 @@ img {
 .profile-info {
     position: relative;
     width: 20rem;
-    margin: 0 auto;
+    margin: 0 auto 0 160px;
+    padding: 0 10px;
     background: #fff;
 }
 
@@ -63,4 +64,42 @@ img {
 
 input:focus {
     outline: none;
+}
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 50px;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #444;
+    display: block;
+}
+
+.sidenav a.active {
+    color: indianred;
+    background: transparent;
+    border: #ddd solid 2px;
+    border-top-color: white;
+    border-left-color: white;
+    border-radius: 0.5rem;
+}
+
+.sidenav a:hover {
+    color: indianred;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
