@@ -31,3 +31,65 @@ body {
     float: right;
 }
 
+form {
+    position: relative;
+    width: 20rem;
+    margin: 0 auto;
+    background: #fff;
+}
+
+form div {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+form div.textinput input {
+    display: block;
+    width: 400px;
+    height: 40px;
+    background: transparent;
+    border: solid 1px #e1e5ee;
+    border-radius: 0.5rem;
+    padding: 0 15px;
+}
+
+form div.textinput input:focus {
+    border-color: darkgray;
+}
+
+form div label {
+    position: absolute;
+    cursor: text;
+    z-index: 2;
+    font-size: 12px;
+    background: #fff;
+    padding: 3px 5px;
+    color: #444;
+}
+
+form div.textinput label {
+    top: 14px;
+    left: 10px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+form div.textinput input:focus + label,
+form div.textinput input:valid + label {
+    font-size: 11px;
+    top: -5px;
+}
+
+form div.textinput input:focus + label {
+    color: indianred;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+.hs-firstname {
+    position: relative;
+    margin-top: 50px;
+}
