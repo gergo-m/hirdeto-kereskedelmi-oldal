@@ -1,3 +1,15 @@
+<?php
+$uzenet = "";
+if (isset($_GET["submit"])) {
+    if (isset($_GET["fname"]) && trim($_GET["fname"]) !== "") {
+        $beirt_nev = $_GET["fname"];
+        $uzenet = "A beírt név: $beirt_nev";
+    } else {
+        $uzenet = "<strong>Hiba!</strong> Írj be egy nevet!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +22,7 @@
 <?php include_once "header.php"; ?>
 <h1>Welcome!</h1>
 <h2>Register an account below:</h2>
-<form method="POST" action="profile.html">
+<form method="GET" action="register.php">
     <div class="textinput">
         <input type="text" id="fname" name="fname" placeholder="John" autocomplete="off">
         <label for="fname">First name</label>
@@ -39,7 +51,8 @@
         <input type="tel" id="phone" name="phone" placeholder="+36301234567" autocomplete="off">
         <label for="phone">Phone number</label>
     </div>
-    <input type="submit" value="Continue">
+    <input type="submit" value="Continue" name="submit">
 </form>
+<?php echo "<p>" . $uzenet . "</p>"; ?>
 </body>
 </html>
