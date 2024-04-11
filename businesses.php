@@ -7,13 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav id="topnav">
-    <a href="./index.html">Home</a>
-    <a class="active" href="./businesses.html">Businesses</a>
-    <a href="./profile.html">Profile</a>
-    <a class="topnav-right" href="">About</a>
-    <a class="topnav-right" href="./register.html">Login</a>
-</nav>
+<?php include_once "header.php" ?>
 <table id="businesses" class="container">
     <tr>
       <th ></th>

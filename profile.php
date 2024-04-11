@@ -8,17 +8,11 @@
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-<nav id="topnav">
-    <a href="./index.html">Home</a>
-    <a href="./businesses.html">Businesses</a>
-    <a class="active" href="./profile.html">Profile</a>
-    <a class="topnav-right" href="">About</a>
-    <a class="topnav-right" href="./register.html">Login</a>
-</nav>
+<?php include_once "header.php" ?>
 <div class="whole-page">
 <div class="sidenav">
-    <a class="active" href="./profile.html">Profile</a>
-    <a href="./history.html">History</a>
+    <a class="active" href="profile.php">Profile</a>
+    <a href="history.php">History</a>
 </div>
 <div class="profile-info">
     <div>

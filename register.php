@@ -14,6 +14,7 @@
     <a class="topnav-right" href="">About</a>
     <a class="topnav-right active" href="./register.html">Login</a>
 </nav>
+<?php include_once "header.html" ?>
 <h1>Welcome!</h1>
 <h2>Register an account below:</h2>
 <form method="POST" action="profile.html">
