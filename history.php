@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-<?php include_once "header.php" ?>
+<?php include_once "header.php"; ?>
 <div class="sidenav">
     <a href="profile.php">Profile</a>
     <a class="active" href="history.php">History</a>

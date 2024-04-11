@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "header.php" ?>
+<?php include_once "header.php"; ?>
 <table id="businesses" class="container">
     <tr>
       <th ></th>

@@ -7,6 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "header.php" ?>
+<?php include_once "header.php"; ?>
 </body>
 </html>

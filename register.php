@@ -7,14 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav id="topnav">
-    <a href="./index.html">Home</a>
-    <a href="./businesses.html">Businesses</a>
-    <a href="./profile.html">Profile</a>
-    <a class="topnav-right" href="">About</a>
-    <a class="topnav-right active" href="./register.html">Login</a>
-</nav>
-<?php include_once "header.html" ?>
+<?php include_once "header.php"; ?>
 <h1>Welcome!</h1>
 <h2>Register an account below:</h2>
 <form method="POST" action="profile.html">
