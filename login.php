@@ -1,8 +1,8 @@
 <?php
 $uzenet = "";
-if (isset($_POST["submit"])) {
-    if (isset($_POST["first_name"]) && trim($_POST["first_name"]) !== "") {
-        $beirt_nev = $_POST["first_name"];
+if (isset($_GET["submit"])) {
+    if (isset($_GET["fname"]) && trim($_GET["fname"]) !== "") {
+        $beirt_nev = $_GET["fname"];
         $uzenet = "A beírt név: $beirt_nev";
     } else {
         $uzenet = "<strong>Hiba!</strong> Írj be egy nevet!";
@@ -25,17 +25,17 @@ if (isset($_POST["submit"])) {
 <?php if(isset($_GET['error'])) { ?>
     <p class="error"><?php echo $_GET['error']; ?></p>
 <?php } ?>
-<form method="POST" action="register_db.php">
+<form method="GET" action="login_db.php">
     <div class="textinput">
-        <input type="text" id="first_name" name="first_name" placeholder="John" autocomplete="off">
+        <input type="text" id="fname" name="first_name" placeholder="John" autocomplete="off">
         <label for="fname">First name</label>
     </div>
     <div class="textinput">
-        <input type="text" id="last_name" name="last_name" placeholder="Doe" autocomplete="off">
+        <input type="text" id="lname" name="last_name" placeholder="Doe" autocomplete="off">
         <label for="lname">Last name</label>
     </div>
     <div class="textinput">
-        <input type="date" id="birth_date" name="birth_date" autocomplete="off">
+        <input type="date" id="bdate" name="birth_date" autocomplete="off">
         <label for="bdate">Birth date</label>
     </div>
     <div class="textinput">
@@ -47,11 +47,11 @@ if (isset($_POST["submit"])) {
         <label for="password">Password</label>
     </div>
     <div>
-        <input type="checkbox" id="business_owner" name="account_type" value="1">
+        <input type="checkbox" id="business_owner" name="account_type" value="business_owner">
         <label for="business_owner">I'm a business owner</label>
     </div>
     <div class="textinput">
-        <input type="tel" id="phone_number" name="phone_number" placeholder="+36301234567" autocomplete="off">
+        <input type="tel" id="phone" name="phone_number" placeholder="+36301234567" autocomplete="off">
         <label for="phone">Phone number</label>
     </div>
     <input type="submit" value="Continue" name="submit">
