@@ -14,17 +14,20 @@
     <a class="active" href="profile.php">Profile</a>
     <a href="history.php">History</a>
 </div>
+<?php
+session_start();
+?>
 <div class="profile-info">
     <div>
         <img src="./assets/images-icons/profile-outline.png" alt="profile icon">
         <h1>Profile</h1>
     </div>
     <div class="textinput">
-        <input type="text" id="fname" name="fname" value="John" autocomplete="off">
+        <input type="text" id="fname" name="fname" value="<?php echo $_SESSION['user_name']; ?>" autocomplete="off">
         <label for="fname">First name</label>
     </div>
     <div class="textinput">
-        <input type="text" id="lname" name="lname" value="Doe" autocomplete="off">
+        <input type="text" id="lname" name="lname" value="<?php echo $_SESSION['name']; ?>" autocomplete="off">
         <label for="lname">Last name</label>
     </div>
     <div class="textinput">
