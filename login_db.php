@@ -36,6 +36,11 @@ if (isset($_POST["email"])
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['birth_date'] = $row['birth_date'];
                 $_SESSION['account_type'] = $row['account_type'];
+                if ($row['profile_picture_name'] === "") {
+                    $_SESSION['profile_picture_name'] = "profile-outline.png";
+                } else {
+                    $_SESSION['profile_picture_name'] = $row['profile_picture_name'];
+                }
                 header("Location: profile.php");
                 exit();
             } else {

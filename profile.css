@@ -8,6 +8,10 @@ img {
     margin-bottom: 15px;
 }
 
+img:hover {
+    cursor: pointer;
+}
+
 .profile-info {
     position: relative;
     width: 20rem;

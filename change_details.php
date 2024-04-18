@@ -27,6 +27,7 @@ if (isset($_POST["first_name"])
     $phone_number = validate($_POST["phone_number"]);
     $account_type = validate($_POST["account_type"]);
     $prev_email = validate($_POST["prev_email"]);
+    $profile_picture_name = validate(explode("@", $email)[0] . "_" . $_FILES["profile_picture"]["name"]);
 
     if (empty($first_name)) {
         header("Location: profile.php?error=First name is required");
@@ -44,6 +45,14 @@ if (isset($_POST["first_name"])
         header("Location: profile.php?error=Phone number is required");
         exit();
     } else {
+        // file management
+        $cel_utvonal = "./assets/profile-pictures/" . $profile_picture_name;
+        if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $cel_utvonal)) {
+            echo "Successfully moved file";
+        } else {
+            echo "Error while moving file";
+        }
+
         $conn = $GLOBALS["db_connection"];
         $sqlCheckIfExists = "SELECT * FROM users
                 WHERE email='$email'";
@@ -56,11 +65,11 @@ if (isset($_POST["first_name"])
 
         // insert into database
         if ($password === "") {
-            $sql = "UPDATE `users` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`birth_date`='$birth_date',`phone_number`='$phone_number',`business_owner`='$account_type' WHERE `email`='$prev_email'";
+            $sql = "UPDATE `users` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`birth_date`='$birth_date',`phone_number`='$phone_number',`business_owner`='$account_type',`profile_picture_name`='$profile_picture_name' WHERE `email`='$prev_email'";
         } else {
             // hash password
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "UPDATE `users` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`password`='$hashed_password',`birth_date`='$birth_date',`phone_number`='$phone_number',`business_owner`='$account_type' WHERE `email`='$prev_email'";
+            $sql = "UPDATE `users` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`password`='$hashed_password',`birth_date`='$birth_date',`phone_number`='$phone_number',`business_owner`='$account_type',`profile_picture_name`='$profile_picture_name' WHERE `email`='$prev_email'";
         }
         $conn->query($sql);
 
