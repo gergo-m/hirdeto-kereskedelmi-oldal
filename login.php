@@ -41,6 +41,9 @@ if (isset($_GET["email"]) && trim($_GET["email"]) !== "") {
         <label for="password">Password</label>
     </div>
     <input type="submit" value="Continue" name="submit">
+    <div>
+        <br><a href="register.php">Register</a>
+    </div>
 </form>
 <?php echo "<p>" . $uzenet . "</p>"; ?>
 </body>
