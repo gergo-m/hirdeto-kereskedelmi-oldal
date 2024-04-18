@@ -5,10 +5,17 @@
     <title>Hirdető-/kereskedelmi oldal</title>
     <link rel="icon" type="image/x-icon" href="./assets/images-icons/favicon.webp">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="businesses.css">
 </head>
 <body>
 <?php include_once "header.php"; ?>
-<table id="businesses" class="container">
+<div class="flex-container">
+    <div>1111111111111111111111111111111111111111111111111111111111111111111111111111111</div>
+    <div>2222222222222222222222222222222222222222222222222222222222222222222222222222222</div>
+    <div>3333333333333333333333333333333333333333333333333333333333333333333333333333333</div>
+</div>
+
+<!--<table id="businesses" class="container">
     <tr>
       <th ></th>
       <th>Csodajó Mézfarm Kft</th>
@@ -33,6 +40,6 @@
       <td class="tabel-text"> Szeged, Kék utca 4. </td>
       <td class="tabel-text"> Szilvásvárad, Miskolci út 5.</td>
     </tr>
-</table>
+</table>-->
 </body>
 </html>
