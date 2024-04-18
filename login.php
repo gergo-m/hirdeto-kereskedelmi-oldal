@@ -8,6 +8,12 @@ if (isset($_GET["submit"])) {
         $uzenet = "<strong>Hiba!</strong> Írj be egy nevet!";
     }
 }
+
+$email = "";
+if (isset($_GET["email"]) && trim($_GET["email"]) !== "") {
+    $email = $_GET["email"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +33,7 @@ if (isset($_GET["submit"])) {
 <?php } ?>
 <form method="POST" action="login_db.php">
     <div class="textinput">
-        <input type="email" id="email" name="email" placeholder="johndoe97@gmail.com" autocomplete="off">
+        <input type="email" id="email" name="email" placeholder="johndoe97@gmail.com" autocomplete="off" value="<?php echo $email; ?>">
         <label for="email">Email address</label>
     </div>
     <div class="textinput">

@@ -62,11 +62,14 @@ if (isset($_POST["first_name"])
         // hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+        // insert into database
         $sql = "INSERT INTO `users`(`id`, `first_name`, `last_name`, `email`, `password`, `birth_date`, `phone_number`, `business_owner`) VALUES ('','$first_name','$last_name','$email','$hashed_password','$birth_date','$phone_number','$account_type')";
         $conn->query($sql);
 
         // login
-        $sqlLogin = "SELECT * FROM users
+        echo '<script>window.location = "login.php?email=' . $email . '";</script>';
+
+        /*$sqlLogin = "SELECT * FROM users
                 WHERE email='$email'";
         $result = mysqli_query($GLOBALS["db_connection"], $sqlLogin);
         echo mysqli_num_rows($result);
@@ -90,7 +93,7 @@ if (isset($_POST["first_name"])
         } else {
             header("Location: login.php?error=A user does not exist with this email, please register!");
             exit();
-        }
+        }*/
 
         /*if ($conn->query($sql) === TRUE) {
             $result = mysqli_query($conn, $sqlCheckIfExists);
