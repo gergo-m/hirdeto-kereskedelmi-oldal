@@ -55,7 +55,7 @@
                 <a href="logout.php">Logout</a>
             </div>
         <?php } else {
-            header("Location: register.php?error=Account type is " . $_POST["account_type"]);
+            header("Location: login.php");
             exit();
         } ?>
     </div>

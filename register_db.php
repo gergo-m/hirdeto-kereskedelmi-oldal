@@ -59,8 +59,40 @@ if (isset($_POST["first_name"])
         error_reporting(E_ALL);
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-        $sql = "INSERT INTO `users`(`id`, `first_name`, `last_name`, `email`, `password`, `birth_date`, `phone_number`, `business_owner`) VALUES ('','$first_name','$last_name','$email','$password','$birth_date','$phone_number','$account_type')";
-        if ($conn->query($sql) === TRUE) {
+        // hash password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO `users`(`id`, `first_name`, `last_name`, `email`, `password`, `birth_date`, `phone_number`, `business_owner`) VALUES ('','$first_name','$last_name','$email','$hashed_password','$birth_date','$phone_number','$account_type')";
+        $conn->query($sql);
+
+        // login
+        $sqlLogin = "SELECT * FROM users
+                WHERE email='$email'";
+        $result = mysqli_query($GLOBALS["db_connection"], $sqlLogin);
+        echo mysqli_num_rows($result);
+        if (mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
+            if ($row['email'] === $email
+                && password_verify($password, $row['password'])) {
+
+                echo "Logged in!";
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['first_name'] = $row['first_name'];
+                $_SESSION['last_name'] = $row['last_name'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['birth_date'] = $row['birth_date'];
+                $_SESSION['account_type'] = $row['account_type'];
+                header("Location: profile.php");
+                exit();
+            } else {
+                header("Location: login.php?error=Incorrect password");
+            }
+        } else {
+            header("Location: login.php?error=A user does not exist with this email, please register!");
+            exit();
+        }
+
+        /*if ($conn->query($sql) === TRUE) {
             $result = mysqli_query($conn, $sqlCheckIfExists);
             if ($result instanceof mysqli_result) {
                 $row = mysqli_fetch_assoc($result);
@@ -88,7 +120,7 @@ if (isset($_POST["first_name"])
             }
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+        }*/
     }
 } else {
     header("Location: profile.php?error=Account type is " . $_POST["account_type"]);

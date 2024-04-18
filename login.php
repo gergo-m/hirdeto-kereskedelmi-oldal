@@ -21,23 +21,11 @@ if (isset($_GET["submit"])) {
 <body>
 <?php include_once "header.php"; ?>
 <h1>Welcome!</h1>
-<h2>Register an account below:</h2>
+<h2>Login with an existing account:</h2>
 <?php if(isset($_GET['error'])) { ?>
     <p class="error"><?php echo $_GET['error']; ?></p>
 <?php } ?>
-<form method="GET" action="login_db.php">
-    <div class="textinput">
-        <input type="text" id="fname" name="first_name" placeholder="John" autocomplete="off">
-        <label for="fname">First name</label>
-    </div>
-    <div class="textinput">
-        <input type="text" id="lname" name="last_name" placeholder="Doe" autocomplete="off">
-        <label for="lname">Last name</label>
-    </div>
-    <div class="textinput">
-        <input type="date" id="bdate" name="birth_date" autocomplete="off">
-        <label for="bdate">Birth date</label>
-    </div>
+<form method="POST" action="login_db.php">
     <div class="textinput">
         <input type="email" id="email" name="email" placeholder="johndoe97@gmail.com" autocomplete="off">
         <label for="email">Email address</label>
@@ -45,14 +33,6 @@ if (isset($_GET["submit"])) {
     <div class="textinput">
         <input type="password" id="password" name="password" autocomplete="off">
         <label for="password">Password</label>
-    </div>
-    <div>
-        <input type="checkbox" id="business_owner" name="account_type" value="business_owner">
-        <label for="business_owner">I'm a business owner</label>
-    </div>
-    <div class="textinput">
-        <input type="tel" id="phone" name="phone_number" placeholder="+36301234567" autocomplete="off">
-        <label for="phone">Phone number</label>
     </div>
     <input type="submit" value="Continue" name="submit">
 </form>
