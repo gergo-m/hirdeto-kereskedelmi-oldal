@@ -14,9 +14,6 @@
         <a class="active" href="profile.php">Profile</a>
         <a href="history.php">History</a>
     </div>
-    <?php
-    session_start();
-    ?>
     <div class="profile-info">
         <div>
             <img src="./assets/images-icons/profile-outline.png" alt="profile icon">
