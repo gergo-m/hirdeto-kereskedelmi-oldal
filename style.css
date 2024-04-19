@@ -69,14 +69,16 @@ form div label {
 }
 
 form div.textinput label {
-    top: 14px;
     left: 10px;
+    top: -5px;
     font-weight: bold;
     padding: 0 10px;
+    font-size: 11px;
 }
 
 form div.textinput input:focus + label,
-form div.textinput input:valid + label {
+form div.textinput input:valid + label,
+form div.textinput input[readonly] + label {
     font-size: 11px;
     top: -5px;
 }

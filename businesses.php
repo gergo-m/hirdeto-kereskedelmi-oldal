@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hirdető-/kereskedelmi oldal</title>
+    <title>Businesses</title>
     <link rel="icon" type="image/x-icon" href="./assets/images-icons/favicon.webp">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="businesses.css">

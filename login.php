@@ -20,7 +20,7 @@ if (isset($_GET["email"]) && trim($_GET["email"]) !== "") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Regisztráció</title>
+    <title>Login</title>
     <link rel="icon" type="image/x-icon" href="./assets/images-icons/favicon.webp">
     <link rel="stylesheet" href="style.css">
 </head>
