@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regisztráció</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images-icons/favicon.webp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav id="topnav">
+    <a href="./index.html">Home</a>
+    <a href="./businesses.html">Businesses</a>
+    <a href="./profile.html">Profile</a>
+    <a class="topnav-right" href="./about.html">About</a>
+    <a class="topnav-right active" href="./register.html">Login</a>
+</nav>
+<h1>Welcome!</h1>
+<h2>Register an account below:</h2>
+<form method="POST" action="profile.html">
+    <div class="textinput">
+        <input type="text" id="fname" name="fname" placeholder="John" autocomplete="off">
+        <label for="fname">First name</label>
+    </div>
+    <div class="textinput">
+        <input type="text" id="lname" name="lname" placeholder="Doe" autocomplete="off">
+        <label for="lname">Last name</label>
+    </div>
+    <div class="textinput">
+        <input type="date" id="bdate" name="bdate" autocomplete="off">
+        <label for="bdate">Birth date</label>
+    </div>
+    <div class="textinput">
+        <input type="email" id="email" name="email" placeholder="johndoe97@gmail.com" autocomplete="off">
+        <label for="email">Email address</label>
+    </div>
+    <div class="textinput">
+        <input type="password" id="password" name="password" autocomplete="off">
+        <label for="password">Password</label>
+    </div>
+    <div>
+        <input type="checkbox" id="business_owner" name="account_type" value="business_owner">
+        <label for="business_owner">I'm a business owner</label>
+    </div>
+    <div class="textinput">
+        <input type="tel" id="phone" name="phone" placeholder="+36301234567" autocomplete="off">
+        <label for="phone">Phone number</label>
+    </div>
+    <input type="submit" value="Continue">
+</form>
+</body>
+</html>
