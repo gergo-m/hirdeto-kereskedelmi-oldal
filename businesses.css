@@ -1,0 +1,71 @@
+.flex_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 1%;
+}
+
+.business_container {
+    padding: 6px 16px;
+    margin: 20px;
+    border: 2px solid #ccc;
+    border-top: #eee solid 1px;
+    border-left: indianred solid 4px;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+    width: 20%;
+}
+
+.business_container:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: transform 0.4s ease;
+}
+
+.business_name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.business_container .business_name::after {
+    content: "(since 2019)";
+    padding-left: 10px;
+    font-weight: lighter;
+    color: #666;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.business_container:hover .business_name::after {
+    opacity: 1;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.business_container:not:hover .business_name::after {
+    animation: fadeOut 0.3s ease;
+}
+
+.business_description {
+    color: #444;
+}
+
+.business_services {
+    margin-bottom: 15px;
+}
+
+.service {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.service_name {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}

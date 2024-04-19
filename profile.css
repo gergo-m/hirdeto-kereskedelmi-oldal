@@ -8,6 +8,10 @@ img {
     margin-bottom: 15px;
 }
 
+img:hover {
+    cursor: pointer;
+}
+
 .profile-info {
     position: relative;
     width: 20rem;
@@ -45,17 +49,18 @@ img {
     color: #444;
 }
 
+.profile-info div.textinput input:focus + label,
+.profile-info div.textinput input:valid + label,
+.profile-info div.textinput input:read-only + label {
+    font-size: 11px;
+    top: -5px;
+}
+
 .profile-info div.textinput label {
     top: 14px;
     left: 10px;
     font-weight: bold;
     padding: 0 10px;
-}
-
-.profile-info div.textinput input:focus + label,
-.profile-info div.textinput input:valid + label {
-    font-size: 11px;
-    top: -5px;
 }
 
 .profile-info div.textinput input:focus + label {
