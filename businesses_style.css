@@ -29,7 +29,7 @@
 }
 
 .business_container .business_name::after {
-    content: "(since 2019)";
+    content: "(since ####)";
     padding-left: 10px;
     font-weight: lighter;
     color: #666;
