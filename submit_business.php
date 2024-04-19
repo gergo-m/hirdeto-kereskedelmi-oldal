@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "header.php";
-class Tmp {
-    public static $service_count = 1;
-}?>
+<?php include_once "header.php"; ?>
 <?php if (isset($_GET["error"])) { ?>
     <p class="error"><?php echo $_GET["error"]; ?></p>
 <?php } ?>

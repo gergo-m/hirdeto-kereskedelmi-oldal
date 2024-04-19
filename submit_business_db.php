@@ -1,5 +1,5 @@
 <?php
-session_start();
+include_once "header.php";
 include_once "db-connection.php";
 if (isset($_POST["business_name"])
     && isset($_POST["business_description"])
@@ -18,8 +18,15 @@ if (isset($_POST["business_name"])
     $business_description = validate($_POST["business_description"]);
     $business_year_of_foundation = validate($_POST["business_year_of_foundation"]);
     $owner_id = validate($_POST["owner_id"]);
-    $service_names = implode(";srvc;sprtr;", $_POST["service_names"]);
-    $service_prices = implode(";srvc;sprtr;", $_POST["service_prices"]);
+    $services_array = array();
+    for ($i = 0; $i < count($_POST["service_names"]); $i++) {
+        $services_array[$_POST["service_names"][$i]] = validate($_POST["service_prices"][$i]);
+    }
+    $services = "";
+    foreach ($services_array as $service_name => $service_price) {
+        $services .= $service_name . Tmp::$service_name_price_separator . $service_price . Tmp::$service_separator;
+    }
+    $services = substr($services, 0, -1*strlen(Tmp::$service_separator));
 
     if (empty($business_name)) {
         header("Location: submit_business.php?error=Business name is required");
@@ -33,7 +40,7 @@ if (isset($_POST["business_name"])
     } else if (empty($owner_id)) {
         header("Location: submit_business.php?error=Owner ID is required");
         exit();
-    } else if (empty($service_names) || empty($service_prices)) {
+    } else if (empty($services)) {
         header("Location: submit_business.php?error=At least one completed service is required");
         exit();
     } else {
@@ -42,8 +49,9 @@ if (isset($_POST["business_name"])
         error_reporting(E_ALL);
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-        $sql = "INSERT INTO `businesses`(`id`, `name`, `description`, `year_of_foundation`, `service_name`, `service_price`, `owner_id`) VALUES ('','$business_name','$business_description','$business_year_of_foundation','$service_names','$service_prices','$owner_id')";
+        $sql = "INSERT INTO `businesses`(`id`, `name`, `description`, `year_of_foundation`, `services`, `owner_id`) VALUES ('','$business_name','$business_description','$business_year_of_foundation','$services','$owner_id')";
         $conn->query($sql);
+        header("Location: submit_business.php?error=Business has been submitted");
     }
 } else {
     echo 'error' . var_dump($_POST);

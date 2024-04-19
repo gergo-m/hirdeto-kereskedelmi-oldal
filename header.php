@@ -1,6 +1,10 @@
 <?php
 session_start();
 $page = basename($_SERVER['PHP_SELF']);
+class Tmp {
+    public static $service_separator = ";srvc;sprtr;";
+    public static $service_name_price_separator = ";nm;prc;";
+}
 ?>
 
 <nav id="topnav">
