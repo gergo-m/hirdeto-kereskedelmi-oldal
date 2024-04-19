@@ -8,12 +8,12 @@ class Business {
     private $service_price;
     private $owner_id;
 
-    public function __construct($nev, $leiras, $alapites_eve, $szolgaltatas_neve, $szolgaltatas_ara, $owner_id) {
-        $this->name = $nev;
-        $this->description = $leiras;
-        $this->year_of_foundation = $alapites_eve;
-        $this->service_name = $szolgaltatas_neve;
-        $this->service_price = $szolgaltatas_ara;
+    public function __construct($name, $description, $year_of_foundation, $service_name, $service_price, $owner_id) {
+        $this->name = $name;
+        $this->description = $description;
+        $this->year_of_foundation = $year_of_foundation;
+        $this->service_name = $service_name;
+        $this->service_price = $service_price;
         $this->owner_id = $owner_id;
     }
 

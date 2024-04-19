@@ -3,4 +3,69 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: stretch;
+    margin-top: 1%;
+}
+
+.business-container {
+    padding: 6px 16px;
+    margin: 20px;
+    border: 2px solid #ccc;
+    border-top: #eee solid 1px;
+    border-left: indianred solid 4px;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+    width: 20%;
+}
+
+.business-container:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: transform 0.4s ease;
+}
+
+.business-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.business-container .business-name::after {
+    content: "(since 2019)";
+    padding-left: 10px;
+    font-weight: lighter;
+    color: #666;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.business-container:hover .business-name::after {
+    opacity: 1;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.business-container:not:hover .business-name::after {
+    animation: fadeOut 0.3s ease;
+}
+
+.business-description {
+    color: #444;
+}
+
+.business-services {
+    margin-bottom: 15px;
+}
+
+.service {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.service-name {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
 }
