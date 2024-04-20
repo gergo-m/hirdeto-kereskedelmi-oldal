@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="businesses_style.css">
 </head>
 <body>
-<?php
-    include_once "header.php";
-    include_once "load_businesses.php";
-?>
+<?php include_once "header.php";
+include_once "load_businesses.php"; ?>
 <div class="flex_container">
     <script>
         <?php foreach ($_SESSION["businesses"] as $key => $value):?>
@@ -31,16 +29,9 @@
                 }
             </style>`;
         <?php endforeach; ?>
-        <?php
-        if (isset($_SESSION['id']) && isset($_SESSION['email'])&& $_SESSION["email"]=='admin@admin.com') : ?>
-        <input type="button" value="Set service" class="" id="btnHome" onClick="window.location = 'admin.php'" />
-        <?php endif; ?>
-        <?php
-        if (isset($_SESSION['id']) && isset($_SESSION['email']) && $_SESSION["email"]=='admin@admin.com'):?>
-        <input type="button" value="Delet" class="" id="btnHome" onClick="window.location = 'admin.php'" />
-        <?php endif; ?>
     </script>
 </div>
+
 
 </body>
 </html>

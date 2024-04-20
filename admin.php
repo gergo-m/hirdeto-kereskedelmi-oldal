@@ -22,10 +22,7 @@ $businesses=$_SESSION["businesses"];
     Accept or reject the recent Bussines!
 </h2>
 <form method="post">
-    <?php
-    $legthBussines= count($businesses);
-    echo $businesses[$legthBussines]
-    ?>
+
     <label >
         Accept
         <input name="Accept" type="button">
@@ -39,13 +36,6 @@ $businesses=$_SESSION["businesses"];
 <form method="post">
     <label>
         Delet businesses
-        <?php
-        echo '<form method="post">';
-        echo '<select name="selected_element">';
-        ?>
-        <?php<foreach ($businesses as $busines)?>
-           <option value="" > <?php 
-        
 
             
     </label>
