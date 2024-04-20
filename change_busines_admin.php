@@ -23,14 +23,14 @@ include_once "header.php";
     echo "</tr>";
     while ($row=$result->fetch_array()){
         echo "<tr>";
-        echo "<td><input  type='hidden' name='custId' value='".$row['id']."' /></td>";
-        echo "<td>Name  :<input type='text' name='name' value='".$row['name']."'> </td>";
-        echo "<td>Desciptrion  :<textarea>  ".$row['description']." '</textarea></td>";
+        echo "<td><input  type='hidden' name='custId' value=' ".$row['id']."'  /> </td>";
+        echo "<td>Name  :<input type='text' name='name' value='".$row['name']." '> </td>";
+        echo "<td>Desciptrion  :<textarea name='description'>  ".$row['description']." '</textarea></td>";
         echo "<td>Year of foundation  :<input type='number' name='yof' value='".$row['year_of_foundation']."' /></td>";
-        echo "<td> Services  :<textarea> ".$row['services']."'</textarea></td>";
+        echo "<td> Services  :<textarea name='service'> ".$row['services']."'</textarea></td>";
         echo "</tr>";
     }
-    echo "<input type='submit' name='update' value='UPDATE' class='update'/>";
+
 
 
     ?>
@@ -38,16 +38,17 @@ include_once "header.php";
 
 
 </form>
+<input type='submit' name='update' value='UPDATE' class='update'/>
 <?php
-if(isset($_POST["update"])){
+if(isset($_POST["update"]) && $_POST["update"] != ""){
     $id = $_POST["custId"];
     $name = $_POST["name"];
     $description = $_POST["description"];
     $yof = $_POST["yof"];
-    $Services = $_POST["Services"];
+    $services = $_POST["service"];
     $update_query="UPDATE businesbusinesses SET name='$name', description='$description', year_of_foundation='$yof', services='$services' WHERE id='$id'";
     mysqli_query($GLOBALS["db_connection"], $update_query);
-    header("Refresh:0");
+
 }
 
 

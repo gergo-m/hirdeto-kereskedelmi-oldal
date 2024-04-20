@@ -12,7 +12,7 @@
 include_once "db-connection.php";
 include_once "header.php"; ?>
 
-<form action="change_busines_admin.php" method="post" class="adminform">
+<form action="delet_busines_admin.php" method="post" class="adminform">
     <table class="delet-tabel">
         <?php
         $sql = "SELECT * FROM businesses";

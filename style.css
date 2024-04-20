@@ -187,6 +187,9 @@ input:focus {
     color: white;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     border-radius: 1%;
+    position: absolute;
+    width: 30%;
+    height: auto;
+
 }
