@@ -43,9 +43,9 @@ $businesses=$_SESSION["businesses"];
         echo '<form method="post">';
         echo '<select name="selected_element">';
         ?>
-        <?php<foreach ($businesses as $busines)?>{
+        <?php<foreach ($businesses as $busines)?>
            <option value="" > <?php 
-        }
+        
 
             
     </label>
