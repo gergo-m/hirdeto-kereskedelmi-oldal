@@ -9,13 +9,11 @@
 </head>
 <body>
 <?php
-include_once "header.php";
-include_once "load_businesses.php";
+    include_once "header.php";
+    include_once "load_businesses.php";
 ?>
-
 <div class="flex_container">
         <?php
-            print("uj");
             foreach ($_SESSION["businesses"] as $key => $value):
         ?>
          <div class="business_container">
@@ -28,7 +26,6 @@ include_once "load_businesses.php";
             </div>
             </div>
         <?php endforeach; ?>
-
 </div>
 </body>
 </html>
