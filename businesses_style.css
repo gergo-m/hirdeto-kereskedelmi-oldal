@@ -18,7 +18,6 @@
 }
 
 .business_container:hover {
-    cursor: pointer;
     transform: scale(1.02);
     transition: transform 0.4s ease;
 }
@@ -37,7 +36,8 @@
     transition: opacity 0.5s ease;
 }
 
-.business_container:hover .business_name::after {
+.business_container:hover .business_name::after,
+.business_container:hover .service_name::after {
     opacity: 1;
 }
 
@@ -46,7 +46,8 @@
     to { opacity: 0; }
 }
 
-.business_container:not:hover .business_name::after {
+.business_container:not:hover .business_name::after,
+.business_container:not:hover .service_name::after {
     animation: fadeOut 0.3s ease;
 }
 
@@ -68,4 +69,17 @@
     margin: 5px 0;
     color: #666;
     font-size: 14px;
+}
+
+.service_name::after {
+    content: "🛒";
+    padding-left: 10px;
+    font-weight: lighter;
+    color: #666;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.service:hover {
+    cursor: pointer;
 }
