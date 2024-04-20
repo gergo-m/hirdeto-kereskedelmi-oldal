@@ -7,7 +7,9 @@ class Tmp {
 }
 ?>
 
+
 <nav id="topnav">
+    <div id="topnav_div">
     <a class="<?php if($page == 'index.php'){echo 'active"';}?>" href="index.php">Home</a>
     <a class="<?php if($page == 'businesses.php'){echo 'active"';}?>" href="businesses.php">Businesses</a>
     <a class="<?php if($page == 'profile.php'){echo 'active"';}?>" href="profile.php">Profile</a>
@@ -21,4 +23,5 @@ class Tmp {
             echo 'Login';
         } ?>
     </a>
+    </div>
 </nav>

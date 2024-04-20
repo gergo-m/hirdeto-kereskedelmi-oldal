@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="businesses_style.css">
 </head>
 <body>
+<div class="main">
 <?php include_once "header.php";
 include_once "load_businesses.php"; ?>
 <div class="flex_container">
@@ -58,5 +59,6 @@ include_once "load_businesses.php"; ?>
       <td class="tabel-text"> Szilvásvárad, Miskolci út 5.</td>
     </tr>
 </table>-->
+</div>
 </body>
 </html>
