@@ -21,7 +21,7 @@
                 <div class="business_property"><p class="business_description"><?php echo $value["description"]; ?></p></div>
                 <div class="business_property business-services">
                 <?php foreach (explode(Tmp::$service_separator, $value["services"]) as $index => $service): ?>
-                    <div class="service"><p class="service_name"><?php echo explode(Tmp::$service_name_price_separator, $service)[0] . " - " . explode(Tmp::$service_name_price_separator, $service)[1]?></p></div>
+                    <div class="service" title="Add to basket" onclick="addToBasket()"><p class="service_name"><?php echo explode(Tmp::$service_name_price_separator, $service)[0] . " - " . explode(Tmp::$service_name_price_separator, $service)[1]?></p></div>
                 <?php endforeach; ?>
                 </div>
             </div>
@@ -30,6 +30,9 @@
                     content: "(since <?php echo $value["year_of_foundation"] ?>)";
                 }
             </style>`;
+        function addToBasket() {
+            alert("Service has been added to your basket!");
+        }
         <?php endforeach; ?>
 
     </script>
