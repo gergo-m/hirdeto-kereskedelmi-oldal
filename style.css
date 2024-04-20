@@ -130,9 +130,9 @@ input:focus {
 }
 
 
-
+/*Admin felület formázása*/
  .delet-button{
-     background-color: red; /* Green */
+     background-color: red;
      color: white;
      text-align: center;
      text-decoration: none;
@@ -142,32 +142,51 @@ input:focus {
  .delet-tabel{
      border: 1px solid;
      width: 100%;
+     align-content: center;
  }
 .delet-tabel, th, td{
     border: 1px solid;
+    text-align-all: center;
 
 }
 .change-tabel{
     border: 1px solid;
     width: 100%;
+    align-content: center;
 }
 .change-tabel, th, td {
     border: 1px solid;
+    align-content: center;
+    text-align: center;
 
 }
 .adminform{
      width: 100%;
 }
-.Delet-button{
-    
+.Admin-button{
+    flex: auto;
+    padding: 3px;
 }
+
 .admin-container{
+
     padding: 6px 16px;
     margin: 20px;
-    border: 2px solid #ccc;
-    border-top: #eee solid 1px;
+    border: 2px solid #8f8f8f;
+    border-top: #848484 solid 1px;
     border-left: indianred solid 4px;
     border-radius: 0.5rem;
     transition: transform 0.2s ease;
     width: 20%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.update{
+    background-color: green;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 1%;
 }

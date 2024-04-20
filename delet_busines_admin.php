@@ -12,7 +12,7 @@
 include_once "db-connection.php";
 include_once "header.php"; ?>
 
-<form action="change_busies_admin.php" method="post" class="adminform">
+<form action="change_busines_admin.php" method="post" class="adminform">
     <table class="delet-tabel">
         <?php
         $sql = "SELECT * FROM businesses";
@@ -23,13 +23,9 @@ include_once "header.php"; ?>
         $row=$result->fetch_array();
         while ($row=$result->fetch_array()){
             echo "<tr>";
-
             echo "<td><input type='hidden' name='custId' value='".$row['id']."' /></td>";
-
             echo "<td>Name  : ".$row['name']."' </td>";
-
             echo "<td>Desciptrion  : ".$row['description']." </td>";
-
             echo "<td><input class='delet-button' type='submit' name='delet' value='DELET' /></td>";
             echo "</tr>";
         }
