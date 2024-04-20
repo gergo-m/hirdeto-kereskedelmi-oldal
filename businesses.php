@@ -31,15 +31,19 @@
                 }
             </style>`;
         <?php endforeach; ?>
+
+    </script>
+    <div class="admin-container">
         <?php
         if (isset($_SESSION['id']) && isset($_SESSION['email'])&& $_SESSION["email"]=='admin@admin.com') : ?>
-        <input type="button" value="Set service" class="" id="btnHome" onClick="window.location = 'admin.php'" />
+            <input type="button" value="Set service" class="Set-service-button" id="btnHome" onClick="window.location = 'change_busies_admin.php'" />
         <?php endif; ?>
         <?php
         if (isset($_SESSION['id']) && isset($_SESSION['email']) && $_SESSION["email"]=='admin@admin.com'):?>
-        <input type="button" value="Delet" class="" id="btnHome" onClick="window.location = 'admin.php'" />
+            <input type="button" value="Delet a service" class="Delet-button" id="btnHome" onClick="window.location = 'delet_busies_admin.php'" />
         <?php endif; ?>
-    </script>
+    </div>
+
 </div>
 
 </body>

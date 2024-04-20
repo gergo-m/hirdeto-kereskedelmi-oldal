@@ -128,3 +128,46 @@ input:focus {
     text-align: left;
     color: #000;
 }
+
+
+
+ .delet-button{
+     background-color: red; /* Green */
+     color: white;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 1%;
+ }
+ .delet-tabel{
+     border: 1px solid;
+     width: 100%;
+ }
+.delet-tabel, th, td{
+    border: 1px solid;
+
+}
+.change-tabel{
+    border: 1px solid;
+    width: 100%;
+}
+.change-tabel, th, td {
+    border: 1px solid;
+
+}
+.adminform{
+     width: 100%;
+}
+.Delet-button{
+    
+}
+.admin-container{
+    padding: 6px 16px;
+    margin: 20px;
+    border: 2px solid #ccc;
+    border-top: #eee solid 1px;
+    border-left: indianred solid 4px;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+    width: 20%;
+}

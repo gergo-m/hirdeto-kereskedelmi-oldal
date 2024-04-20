@@ -5,7 +5,7 @@ if (isset($_GET["submit"])) {
         $beirt_nev = $_GET["fname"];
         $uzenet = "A beírt név: $beirt_nev";
     } else {
-        $uzenet = "<strong>Hiba!</strong> Írj be egy nevet!";
+        $uzenet = "<strong>Error!</strong> Missing email!";
     }
 }
 
