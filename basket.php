@@ -9,12 +9,12 @@
 </head>
 <body>
 <?php
-    include_once "header.php";
-    include_once "load_businesses.php";
+include_once "header.php";
+include_once "load_businesses.php";
 ?>
 <div class="flex_container">
     <script>
-        <?php foreach ($_SESSION["businesses"] as $key => $value):?>
+        <?php foreach ($_COOKIE["services_in_basket"] as $key => $value):?>
         document.querySelector(".flex_container").innerHTML +=
             `<div class="business_container">
                 <div class="business_property"><p class="business_name" id="business<?php echo $key; ?>"><?php echo $value["name"]; ?></p></div>
@@ -38,14 +38,14 @@
     </script>
 
 
-        <?php
-        if (isset($_SESSION['id']) && isset($_SESSION['email'])&& $_SESSION["email"]=='admin@admin.com') : ?>
-            <div class="admin-container">
-                <input type="button" value="Add businesses" class="Admin-button" id="btnHome" onClick="window.location = 'add_busines_admin.php'" />
-                <input type="button" value="Set service" class="Admin-button" id="btnHome" onClick="window.location = 'change_busines_admin.php'" />
-                <input type="button" value="Delet a service" class="Admin-button" id="btnHome" onClick="window.location = 'delet_busines_admin.php'" />
-            </div>
-        <?php endif; ?>
+    <?php
+    if (isset($_SESSION['id']) && isset($_SESSION['email'])&& $_SESSION["email"]=='admin@admin.com') : ?>
+        <div class="admin-container">
+            <input type="button" value="Add businesses" class="Admin-button" id="btnHome" onClick="window.location = 'add_busines_admin.php'" />
+            <input type="button" value="Set service" class="Admin-button" id="btnHome" onClick="window.location = 'change_busines_admin.php'" />
+            <input type="button" value="Delet a service" class="Admin-button" id="btnHome" onClick="window.location = 'delet_busines_admin.php'" />
+        </div>
+    <?php endif; ?>
 </div>
 </body>
 </html>
