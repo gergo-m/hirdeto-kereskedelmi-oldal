@@ -17,7 +17,7 @@
         <?php foreach ($_SESSION["businesses"] as $key => $value):?>
         document.querySelector(".flex_container").innerHTML +=
             `<div class="business_container">
-                <div class="business_property" onclick="loadpage('<?php echo $value["name"]; ?>')"><p class="business_name" id="business<?php echo $key; ?>"><?php echo $value["name"]; ?></p></div>
+                <div class="business_property" onclick="loadpage('<?php echo $value["business_id"]; ?>')"><p class="business_name" id="business<?php echo $key; ?>"><?php echo $value["name"]; ?></p></div>
                 <div class="business_property"><p class="business_description"><?php echo $value["description"]; ?></p></div>
                 <div class="business_property business-services">
                 <?php foreach (explode(Tmp::$service_separator, $value["services"]) as $index => $service): ?>
@@ -30,8 +30,8 @@
                     content: "(since <?php echo $value["year_of_foundation"] ?>)";
                 }
             </style>`;
-        function loadpage(name) {
-            window.location = "view_business.php?name=" + name;
+        function loadpage(id) {
+            window.location = "view_business.php?id=" + id;
         }
         function addToBasket() {
             <?php

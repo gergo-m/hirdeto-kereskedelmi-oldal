@@ -26,27 +26,29 @@ if (isset($_POST["business_name"])
     }
     $services = "";
     foreach ($services_array as $service_name => $service_price) {
-        $services .= $service_name . Tmp::$service_name_price_separator . $service_price . Tmp::$service_separator;
+        if (!empty($service_name)) {
+            $services .= $service_name . Tmp::$service_name_price_separator . $service_price . Tmp::$service_separator;
+        }
     }
     $services = substr($services, 0, -1*strlen(Tmp::$service_separator));
 
     if (empty($business_name)) {
-        header("Location: submit_business.php?msg=Business name is required");
+        header("Location: view_business.php?msg=Business name is required");
         exit();
     } else if (empty($business_description)) {
-        header("Location: submit_business.php?msg=Business description is required");
+        header("Location: view_business.php?msg=Business description is required");
         exit();
     } else if (empty($business_year_of_foundation)) {
-        header("Location: submit_business.php?msg=Year of foundation is required");
+        header("Location: view_business.php?msg=Year of foundation is required");
         exit();
     } else if (empty($owner_id)) {
-        header("Location: submit_business.php?msg=Owner ID is required");
+        header("Location: view_business.php?msg=Owner ID is required");
         exit();
     } else if (empty($business_id)) {
-        header("Location: submit_business.php?msg=Business ID is required");
+        header("Location: view_business.php?msg=Business ID is required");
         exit();
     } else if (empty($services)) {
-        header("Location: submit_business.php?msg=At least one completed service is required");
+        header("Location: view_business.php?msg=At least one completed service is required");
         exit();
     } else {
         $conn = $GLOBALS["db_connection"];
@@ -54,8 +56,8 @@ if (isset($_POST["business_name"])
                 WHERE business_id='$business_id'";
         $resultIfExists = mysqli_query($conn, $sqlCheckIfExists);
         echo mysqli_num_rows($resultIfExists);
-        if (mysqli_num_rows($resultIfExists) === 1) {
-            header("Location: submit_business.php?msg=Business already exists with this ID");
+        if (mysqli_num_rows($resultIfExists) !== 1) {
+            header("Location: view_business.php?id=$business_id&msg=No business exists with this ID");
             exit();
         }
 
@@ -63,9 +65,9 @@ if (isset($_POST["business_name"])
         error_reporting(E_ALL);
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-        $sql = "INSERT INTO `businesses`(`id`, `name`, `description`, `year_of_foundation`, `services`, `owner_id`, `business_id`) VALUES ('','$business_name','$business_description','$business_year_of_foundation','$services','$owner_id','$business_id')";
+        $sql = "UPDATE `businesses` SET `name`='$business_name',`description`='$business_description',`year_of_foundation`='$business_year_of_foundation',`services`='$services',`owner_id`='$owner_id' WHERE `business_id`='$business_id'";
         $conn->query($sql);
-        header("Location: submit_business.php?error=Business has been submitted");
+        header("Location: view_business.php?id=$business_id&msg=Business has been modified");
     }
 } else {
     echo 'error' . var_dump($_POST);

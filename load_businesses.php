@@ -5,7 +5,7 @@ $result = mysqli_query($GLOBALS["db_connection"], $sql);
 
 if (!$result) {
     $error = "ERROR: Could not able to execute $sql. " . mysqli_error($GLOBALS["db_connection"]);
-    header("Location: display-error.php?error=$error");
+    header("Location: display-error.php?msg=$error");
     return;
 }
 

@@ -27,22 +27,22 @@ if (isset($_POST["first_name"])
     $account_type = validate($_POST["account_type"]);
 
     if (empty($first_name)) {
-        header("Location: register.php?error=First name is required");
+        header("Location: register.php?msg=First name is required");
         exit();
     } else if (empty($last_name)) {
-        header("Location: register.php?error=Last name is required");
+        header("Location: register.php?msg=Last name is required");
         exit();
     } else if (empty($email)) {
-        header("Location: register.php?error=Email is required");
+        header("Location: register.php?msg=Email is required");
         exit();
     } else if (empty($password)) {
-        header("Location: register.php?error=Password is required");
+        header("Location: register.php?msg=Password is required");
         exit();
     } else if (empty($birth_date)) {
-        header("Location: register.php?error=Birth date is required");
+        header("Location: register.php?msg=Birth date is required");
         exit();
     } else if (empty($phone_number)) {
-        header("Location: register.php?error=Phone number is required");
+        header("Location: register.php?msg=Phone number is required");
         exit();
     } else {
         $conn = $GLOBALS["db_connection"];
@@ -51,7 +51,7 @@ if (isset($_POST["first_name"])
         $resultIfExists = mysqli_query($conn, $sqlCheckIfExists);
         echo mysqli_num_rows($resultIfExists);
         if (mysqli_num_rows($resultIfExists) === 1) {
-            header("Location: register.php?error=User already exists with this email");
+            header("Location: register.php?msg=User already exists with this email");
             exit();
         }
 
@@ -88,10 +88,10 @@ if (isset($_POST["first_name"])
                 header("Location: profile.php");
                 exit();
             } else {
-                header("Location: login.php?error=Incorrect password");
+                header("Location: login.php?msg=Incorrect password");
             }
         } else {
-            header("Location: login.php?error=A user does not exist with this email, please register!");
+            header("Location: login.php?msg=A user does not exist with this email, please register!");
             exit();
         }*/
 
@@ -118,7 +118,7 @@ if (isset($_POST["first_name"])
                     exit();
                 }
             } else {
-                header("Location: register.php?error=Something is wrong " . $result);
+                header("Location: register.php?msg=Something is wrong " . $result);
                 exit();
             }
         } else {
@@ -126,7 +126,7 @@ if (isset($_POST["first_name"])
         }*/
     }
 } else {
-    header("Location: profile.php?error=Account type is " . $_POST["account_type"]);
+    header("Location: profile.php?msg=Account type is " . $_POST["account_type"]);
     exit();
 }
 ?>

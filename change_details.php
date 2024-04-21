@@ -30,19 +30,19 @@ if (isset($_POST["first_name"])
     $profile_picture_name = validate(explode("@", $email)[0] . "_" . $_FILES["profile_picture"]["name"]);
 
     if (empty($first_name)) {
-        header("Location: profile.php?error=First name is required");
+        header("Location: profile.php?msg=First name is required");
         exit();
     } else if (empty($last_name)) {
-        header("Location: profile.php?error=Last name is required");
+        header("Location: profile.php?msg=Last name is required");
         exit();
     } else if (empty($email)) {
-        header("Location: profile.php?error=Email is required");
+        header("Location: profile.php?msg=Email is required");
         exit();
     } else if (empty($birth_date)) {
-        header("Location: profile.php?error=Birth date is required");
+        header("Location: profile.php?msg=Birth date is required");
         exit();
     } else if (empty($phone_number)) {
-        header("Location: profile.php?error=Phone number is required");
+        header("Location: profile.php?msg=Phone number is required");
         exit();
     } else {
         // file management

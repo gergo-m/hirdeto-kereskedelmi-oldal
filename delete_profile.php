@@ -7,6 +7,6 @@ if (session_id() != "" && isset($_SESSION['email'])) {
     $conn->query($sql);
     session_unset();
     session_destroy();
-    header("Location: register.php?error=Profile deleted successfully... sorry to see you go :(");
+    header("Location: register.php?msg=Profile deleted successfully... sorry to see you go :(");
 }
 ?>

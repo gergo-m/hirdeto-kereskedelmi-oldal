@@ -14,10 +14,10 @@ if (isset($_POST["email"])
     $password = validate($_POST["password"]);
 
     if (empty($email)) {
-        header("Location: login.php?error=Email is required");
+        header("Location: login.php?msg=Email is required");
         exit();
     } else if (empty($password)) {
-        header("Location: login.php?error=Password is required");
+        header("Location: login.php?msg=Password is required");
         exit();
     } else {
         $sql = "SELECT * FROM users
@@ -44,10 +44,10 @@ if (isset($_POST["email"])
                 header("Location: profile.php");
                 exit();
             } else {
-                header("Location: login.php?error=Incorrect password");
+                header("Location: login.php?msg=Incorrect password");
             }
         } else {
-            header("Location: login.php?error=A user does not exist with this email, please register!");
+            header("Location: login.php?msg=A user does not exist with this email, please register!");
             exit();
         }
     }

@@ -2,8 +2,8 @@
 session_start();
 $page = basename($_SERVER['PHP_SELF']);
 class Tmp {
-    public static $service_separator = ";srvc;sprtr;";
-    public static $service_name_price_separator = ";nm;prc;";
+    public static string $service_separator = ";srvc;sprtr;";
+    public static string $service_name_price_separator = ";nm;prc;";
 }
 ?>
 
@@ -14,12 +14,14 @@ class Tmp {
     <a class="<?php if($page == 'businesses.php'){echo 'active';}?>" href="businesses.php">Businesses</a>
     <a class="<?php if($page == 'profile.php'){echo 'active';}?>" href="profile.php">Profile</a>
     <a class="<?php if($page == 'about.php'){echo 'active';}?>" href="./about.php">About</a>
-    <a class="<?php if($page == 'register.php' || $page == 'login.php'){echo 'active';}?>" href="./login.php">
+    <a class="<?php if($page == 'register.php' || $page == 'login.php'){echo 'active';}?>" href="<?php if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+            echo './logout.php';
+        } else { echo './login.php'; }?>">
         <?php if ($page == 'register.php') {
             echo 'Register';
         } else if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
             echo 'Logout';
-        } else {
+        } else if ($page == 'login.php') {
             echo 'Login';
         } ?>
     </a>

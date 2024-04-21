@@ -8,8 +8,8 @@
 </head>
 <body>
 <?php include_once "header.php"; ?>
-<?php if (isset($_GET["error"])) { ?>
-    <p class="error"><?php echo $_GET["error"]; ?></p>
+<?php if (isset($_GET["msg"])) { ?>
+    <p class="msg"><?php echo $_GET["msg"]; ?></p>
 <?php } ?>
 <h1>Submit your business below:</h1>
 <form method="POST" action="submit_business_db.php">
@@ -26,7 +26,7 @@
         <label for="business_year_of_foundation">Year of Foundation</label>
     </div>
     <div class="textinput">
-        <input type="text" id="owner_id" name="owner_id" value="<?php if(isset($_SESSION["email"])) { echo explode("@", $_SESSION["email"])[0]; } else { echo 'ERROR, please log in!'; } ?>" autocomplete="off" readonly>
+        <input type="text" id="owner_id" name="owner_id" value="<?php if(isset($_SESSION["email"])) { echo explode("@", $_SESSION["email"])[0] . "_" . explode(".", explode("@", $_SESSION["email"])[1])[0]; } else { echo 'ERROR, please log in!'; } ?>" autocomplete="off" readonly>
         <label for="owner_id">Owner ID</label>
     </div>
     <div class="textinput">
