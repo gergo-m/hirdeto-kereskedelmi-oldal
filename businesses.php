@@ -52,7 +52,7 @@
                 <div class="button-container">
                     <input type="button" value="Add businesses" class="Admin-button" id="btnHome" onClick="window.location = 'add_business_admin.php'" />
                     <input type="button" value="Set service" class="Admin-button" id="btnHome" onClick="window.location = 'change_business_admin.php'" />
-                    <input type="button" value="Delete a service" class="Admin-button" id="btnHome" onClick="window.location = 'delet_busines_admin.php'" />
+                    <input type="button" value="Delete a service" class="Admin-button" id="btnHome" onClick="window.location = 'delete_business_admin.php'" />
                 </div>
             </div>
         <?php endif; ?>

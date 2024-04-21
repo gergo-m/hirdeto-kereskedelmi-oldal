@@ -16,7 +16,7 @@ if (!isset($_SESSION["email"]) || $_SESSION["email"] != "admin@admin.com") {
     header("Location: index.php");
 } ?>
 
-<form action="delet_business_admin.php" method="post" class="adminform">
+<form action="delete_business_admin.php" method="post" class="adminform">
     <table class="delet-tabel">
         <?php
         $sql = "SELECT * FROM businesses";
