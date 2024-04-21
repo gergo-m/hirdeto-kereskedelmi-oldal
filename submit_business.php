@@ -13,6 +13,10 @@ if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])
     header("Location: login.php");
     exit();
 }
+if (isset($_SESSION['business_owner']) && $_SESSION['business_owner'] != 1) {
+    header("Location: businesses.php");
+    exit();
+}
 ?>
 <?php if (isset($_GET["msg"])) { ?>
     <p class="msg"><?php echo $_GET["msg"]; ?></p>
