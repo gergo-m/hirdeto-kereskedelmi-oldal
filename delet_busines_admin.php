@@ -26,7 +26,7 @@ include_once "header.php"; ?>
             echo "<td><input type='hidden' name='custId' value='".$row['id']."' /></td>";
             echo "<td>Name  : ".$row['name']."' </td>";
             echo "<td>Desciptrion  : ".$row['description']." </td>";
-            echo "<td><input class='delet-button' type='submit' name='delet' value='DELET' /></td>";
+            echo "<td><input class='delet-button' type='submit' name='delet' value='DELETE' /></td>";
             echo "</tr>";
         }
 
@@ -41,6 +41,7 @@ if (isset($_POST['delet'])){
     $delete_query = "DELETE FROM businesses WHERE id='$id'";
     mysqli_query($GLOBALS["db_connection"], $delete_query);
     header("Refresh:0");
+
 }
 
 
