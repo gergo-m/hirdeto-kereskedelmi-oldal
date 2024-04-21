@@ -12,6 +12,9 @@
 include_once "header.php";
 include_once "topnav.php";
 include_once "db_connection.php";
+if (!isset($_SESSION["email"]) || $_SESSION["email"] != "admin@admin.com") {
+    header("Location: index.php");
+}
 ?>
 <?php
 if(isset($_POST["update"]) ){

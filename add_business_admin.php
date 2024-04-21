@@ -10,7 +10,10 @@
 <?php
 include_once "header.php";
 include_once "topnav.php";
-include_once "db_connection.php";?>
+include_once "db_connection.php";
+if (!isset($_SESSION["email"]) || $_SESSION["email"] != "admin@admin.com") {
+    header("Location: index.php");
+}?>
 <form action="add_business_admin.php" method="post" class="adminform">
     <table class="change-tabel">
         <tr>
