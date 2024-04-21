@@ -29,7 +29,12 @@ include_once "load_businesses.php";
                     <div class="service"><p class="service_name"><?php echo explode(Tmp::$service_name_price_separator, $service)[0] . " - " . explode(Tmp::$service_name_price_separator, $service)[1]?></p></div>
                 <?php endforeach; ?>
                 </div>
-            </div>`;
+            </div>
+            <style>
+                .business_container #business<?php echo $key; ?>::after {
+                    content: "(since <?php echo $value["year_of_foundation"] ?>)";
+                }
+            </style>`;
             function loadpage(id) {
                 window.location = "view_business.php?id=" + id;
             }
@@ -49,14 +54,4 @@ include_once "load_businesses.php";
         <?php endif; ?>
 </div>
 </body>
-<?php foreach ($_SESSION["businesses"] as $key => $value):?>
-    <script>
-        document.body.outerHTML +=
-            `<style>
-            .business_container #business<?php echo $key; ?>::after {
-                content: "(since <?php echo $value["year_of_foundation"] ?>)";
-            }
-        </style>`;
-    </script>
-<?php endforeach; ?>
 </html>
