@@ -13,6 +13,11 @@ include_once "header.php";
 include_once "load_businesses.php";
 ?>
 <div class="flex_container">
+    <?php if (isset($_SESSION["email"]) && isset($_SESSION["business_owner"]) && $_SESSION["business_owner"] == 1): ?>
+        <div class="business_container submit_container" onclick="window.location = 'submit_business.php'">
+            <div class="business_property submit_business"><p class="submit_business">+</p></div>
+        </div>
+    <?php endif; ?>
     <?php foreach ($_SESSION["businesses"] as $key => $value):?>
     <script>
         document.querySelector('.flex_container').innerHTML +=
@@ -35,8 +40,6 @@ include_once "load_businesses.php";
             }
     </script>
     <?php endforeach; ?>
-
-        <?php if (isset($_SESSION["email"]) && isset($_SESSION["business_owner"]) && $_SESSION["business_owner"] == 1) ?>
 
         <?php
         if (isset($_SESSION['id']) && isset($_SESSION['email'])&& $_SESSION["email"]=='admin@admin.com') : ?>

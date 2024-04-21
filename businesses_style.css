@@ -72,6 +72,17 @@
     font-size: 14px;
 }
 
+.submit_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit_business {
+    font-size: 50px;
+    color: #444;
+}
+
 /*.service_name::after {
     content: "🛒";
     padding-left: 10px;
