@@ -8,7 +8,6 @@ class Tmp {
 }
 ?>
 
-
 <nav id="topnav">
     <div id="topnav_div">
         <a class="<?php if($page == 'index.php'){echo 'active';}?>" href="index.php">Home</a>

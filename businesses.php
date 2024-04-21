@@ -45,7 +45,6 @@ include_once "load_businesses.php";
                     <input type="button" value="Set service" class="Admin-button" id="btnHome" onClick="window.location = 'change_busines_admin.php'" />
                     <input type="button" value="Delete a service" class="Admin-button" id="btnHome" onClick="window.location = 'delet_busines_admin.php'" />
                 </div>
-
             </div>
         <?php endif; ?>
 </div>
