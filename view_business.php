@@ -36,6 +36,25 @@ if (isset($_GET["id"])) {
     $services = $business["services"];
     $owner_id = $business["owner_id"];
     $business_id = $business["business_id"];
+
+    // add to history
+    foreach ($_SESSION["history"] as $key => $value) {
+        if ($value == $_GET["id"]) {
+            unset($_SESSION["history"][$key]);
+        }
+    }
+    array_unshift($_SESSION["history"], $_GET["id"]);
+    $email = $_SESSION["email"];
+    $history = implode(Tmp::$item_separator, $_SESSION["history"]);
+
+    $conn = $GLOBALS["db_connection"];
+
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+    $sql = "UPDATE `users` SET `history`='$history' WHERE `email`='$email'";
+    $conn->query($sql);
 }
 ?>
 <h1><?php
