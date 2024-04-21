@@ -57,9 +57,13 @@ include_once "load_businesses.php";
         <?php
         if (isset($_SESSION['id']) && isset($_SESSION['email'])&& $_SESSION["email"]=='admin@admin.com') : ?>
             <div class="admin-container">
-                <input type="button" value="Add businesses" class="Admin-button" id="btnHome" onClick="window.location = 'add_busines_admin.php'" />
-                <input type="button" value="Set service" class="Admin-button" id="btnHome" onClick="window.location = 'change_busines_admin.php'" />
-                <input type="button" value="Delet a service" class="Admin-button" id="btnHome" onClick="window.location = 'delet_busines_admin.php'" />
+                <h2>Addmin settings</h2>
+                <div class="button-container">
+                    <input type="button" value="Add businesses" class="Admin-button" id="btnHome" onClick="window.location = 'add_busines_admin.php'" />
+                    <input type="button" value="Set service" class="Admin-button" id="btnHome" onClick="window.location = 'change_busines_admin.php'" />
+                    <input type="button" value="Delete a service" class="Admin-button" id="btnHome" onClick="window.location = 'delet_busines_admin.php'" />
+                </div>
+
             </div>
         <?php endif; ?>
 </div>
