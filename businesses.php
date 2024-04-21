@@ -29,7 +29,7 @@
         </div>
     <?php endif; ?>
     <?php foreach ($_SESSION["businesses"] as $key => $value):?>
-            <div class="business_container" onclick="loadpage('<?php echo $value["business_id"]; ?>')">
+            <div class="business_container" onclick="loadpage('<?php echo $value["business_id"];?>' )">
                 <div class="business_property"><p class="business_name" id="business<?php echo $key; ?>"><?php echo $value["name"]; ?></p></div>
                 <div class="business_property"><p class="business_description"><?php echo $value["description"]; ?></p></div>
                 <div class="business_property business-services">
@@ -48,10 +48,10 @@
         <?php
         if (isset($_SESSION['id']) && isset($_SESSION['email'])&& $_SESSION["email"]=='admin@admin.com') : ?>
             <div class="admin-container">
-                <h2>Addmin settings</h2>
+                <h2>Admin settings</h2>
                 <div class="button-container">
-                    <input type="button" value="Add businesses" class="Admin-button" id="btnHome" onClick="window.location = 'add_busines_admin.php'" />
-                    <input type="button" value="Set service" class="Admin-button" id="btnHome" onClick="window.location = 'change_busines_admin.php'" />
+                    <input type="button" value="Add businesses" class="Admin-button" id="btnHome" onClick="window.location = 'add_business_admin.php'" />
+                    <input type="button" value="Set service" class="Admin-button" id="btnHome" onClick="window.location = 'change_business_admin.php'" />
                     <input type="button" value="Delete a service" class="Admin-button" id="btnHome" onClick="window.location = 'delet_busines_admin.php'" />
                 </div>
             </div>

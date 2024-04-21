@@ -35,7 +35,7 @@ include_once "db_connection.php";?>
 
 <?php
 
-    if(isset($_POST["newline"]) && $_POST["newline"] != ""){
+    if(isset($_POST["newline"]) && $_POST["newline"] != "" &&($_POST["custId"]!="" || $_POST["name"]!=""|| $_POST["description"]!=""|| $_POST["yof"]!=""|| $_POST["services"]!="")) {
         $id = $_POST["custId"];
         $name = $_POST["name"];
         $description = $_POST["description"];
