@@ -13,9 +13,9 @@ include_once "header.php";
 include_once "load_businesses.php";
 ?>
 <div class="flex_container">
+    <?php foreach ($_SESSION["businesses"] as $key => $value):?>
     <script>
-        <?php foreach ($_SESSION["businesses"] as $key => $value):?>
-        document.querySelector(".flex_container").innerHTML +=
+        document.querySelector('.flex_container').innerHTML +=
             `<div class="business_container" onclick="loadpage('<?php echo $value["business_id"]; ?>')">
                 <div class="business_property"><p class="business_name" id="business<?php echo $key; ?>"><?php echo $value["name"]; ?></p></div>
                 <div class="business_property"><p class="business_description"><?php echo $value["description"]; ?></p></div>
@@ -30,11 +30,14 @@ include_once "load_businesses.php";
                     content: "(since <?php echo $value["year_of_foundation"] ?>)";
                 }
             </style>`;
-        function loadpage(id) {
-            window.location = "view_business.php?id=" + id;
-        }
-        <?php endforeach; ?>
+            function loadpage(id) {
+                window.location = "view_business.php?id=" + id;
+            }
     </script>
+    <?php endforeach; ?>
+
+        <?php if (isset($_SESSION["email"]) && isset($_SESSION["business_owner"]) && $_SESSION["business_owner"] == 1) ?>
+
         <?php
         if (isset($_SESSION['id']) && isset($_SESSION['email'])&& $_SESSION["email"]=='admin@admin.com') : ?>
             <div class="admin-container">

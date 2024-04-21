@@ -1,5 +1,5 @@
 <?php
-session_start();
+include_once "header.php";
 include_once "db_connection.php";
 if (isset($_POST["email"])
     && isset($_POST["password"])) {
@@ -35,7 +35,8 @@ if (isset($_POST["email"])
                 $_SESSION['last_name'] = $row['last_name'];
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['birth_date'] = $row['birth_date'];
-                $_SESSION['account_type'] = $row['account_type'];
+                $_SESSION['business_owner'] = $row['business_owner'];
+                $_SESSION['history'] = explode(Tmp::$item_separator, $row['history']);
                 if ($row['profile_picture_name'] === "") {
                     $_SESSION['profile_picture_name'] = "profile-outline.png";
                 } else {
