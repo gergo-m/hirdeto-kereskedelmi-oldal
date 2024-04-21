@@ -2,13 +2,14 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     margin-top: 1%;
+    flex-direction: column;
 }
 
 .message_container {
     padding: 6px 16px;
-    margin: 20px;
+    margin: 5px 0;
     border: 2px solid #ccc;
     border-top: #eee solid 1px;
     border-left: indianred solid 4px;
@@ -28,7 +29,7 @@
 }
 
 .message_container .names::after {
-    content: "(since ####)";
+    content: "(about ####)";
     padding-left: 10px;
     font-weight: lighter;
     color: #666;
@@ -67,8 +68,23 @@
     cursor: pointer;
 }
 
-button.remove_from_basket {
-    margin: 20px 0 10px 0;
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.textinput {
+    margin-bottom: 5px;
+}
+
+button::before {
+    content: "📝";
+    padding-right: 7px;
+}
+button {
     color: #444;
     font-size: 12px;
     display: block;
@@ -77,10 +93,11 @@ button.remove_from_basket {
     border: solid 1px #e1e5ee;
     border-radius: 0.5rem;
     padding: 0 15px;
+    margin-top: 5px;
 }
-button.remove_from_basket:hover {
-    background-color: #eee;
-    color: indianred;
-    border-color: #ee6e6e;
+button:hover {
+    background-color: #eeffee;
+    color: darkgreen;
+    border-color: #90ee90;
     cursor: pointer;
 }

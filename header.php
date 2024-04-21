@@ -30,7 +30,8 @@ class Tmp {
 </nav>
 <style>
     img, a img {
-        height: 15px;
+        height: 18px;
         position: relative;
+        margin: 0;
     }
 </style>

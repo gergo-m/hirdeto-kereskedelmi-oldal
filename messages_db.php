@@ -10,6 +10,13 @@ if (isset($_POST["receiver"]) && isset($_POST["message"])) {
             break;
         }
     }
+    function validate($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    $message = validate($message);
     if (empty($business)) {
         echo "No business exists with that ID";
     } else if (!empty($message)) {
@@ -23,22 +30,24 @@ if (isset($_POST["receiver"]) && isset($_POST["message"])) {
 
         // get messages
         $sqlGetMessages = "SELECT * FROM messages
-                WHERE sender_id='$user_id' AND receiver_id='$receiver_id' AND business_id='$business_id'";
+                WHERE (sender_id='$user_id' AND receiver_id='$receiver_id' AND business_id='$business_id') OR (sender_id='$receiver_id' AND receiver_id='$user_id' AND business_id='$business_id')";
         $result = mysqli_query($GLOBALS["db_connection"], $sqlGetMessages);
-        echo mysqli_num_rows($result);
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row['email'] === $email
-                && password_verify($password, $row['password'])) {
 
-                echo "Logged in!";
-                $_SESSION['id'] = $row['id'];
-                $_SESSION['first_name'] = $row['first_name'];
-                $_SESSION['last_name'] = $row['last_name'];
+        if (!$result) {
+            $error = "ERROR: Was not able to execute $sqlGetMessages. " . mysqli_error($GLOBALS["db_connection"]);
+            header("Location: display-error.php?msg=$error");
+            return;
+        }
+
+        if (mysqli_num_rows($result) == 0) {
+            echo "No messages were found.";
+        } else {
+            $_SESSION["messages"] = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $_SESSION["messages"][] = $row;
             }
         }
-        header("Location: messages.php?receiver=$receiver");
-        exit();
+        header("Location: messages.php?receiver=$business_id");
     }
 }
 ?>

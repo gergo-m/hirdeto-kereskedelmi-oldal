@@ -23,12 +23,12 @@
     cursor: pointer;
 }
 
-.business_name {
+.names {
     font-weight: bold;
     font-size: 16px;
 }
 
-.business_container .business_name::after {
+.business_container .names::after {
     content: "(since ####)";
     padding-left: 10px;
     font-weight: lighter;
@@ -37,7 +37,7 @@
     transition: opacity 0.5s ease;
 }
 
-.business_container:hover .business_name::after,
+.business_container:hover .names::after,
 .business_container:hover .service_name::after {
     opacity: 1;
 }
@@ -47,7 +47,7 @@
     to { opacity: 0; }
 }
 
-.business_container:not:hover .business_name::after,
+.business_container:not:hover .names::after,
 .business_container:not:hover .service_name::after {
     animation: fadeOut 0.3s ease;
 }
