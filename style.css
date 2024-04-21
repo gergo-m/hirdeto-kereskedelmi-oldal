@@ -260,7 +260,10 @@ button-container{
     margin: 1%;
     padding: 4%;
     background: lightcoral;
+<<<<<<< Updated upstream
     opacity: 80%;
+=======
+>>>>>>> Stashed changes
 
 }
 .description{
@@ -269,7 +272,10 @@ button-container{
     margin: 1%;
     padding: 4%;
     background: lightblue;
+<<<<<<< Updated upstream
     opacity: 80%;
+=======
+>>>>>>> Stashed changes
 }
 .add{
     font-weight: bold;
@@ -278,6 +284,7 @@ button-container{
     margin: 1%;
     padding: 4%;
     background: lightgreen;
+<<<<<<< Updated upstream
     opacity: 80%;
 }
 
@@ -300,3 +307,16 @@ button-container{
     font-size: 300% ;
 }
 
+=======
+}
+
+.aboutbutton{
+    border-radius: 4px;
+    background:#8f8f8f ;
+}
+.add:hover, .description:hover, .features:hover{
+    opacity: 70%;
+    ;
+    height: auto;
+}
+>>>>>>> Stashed changes
