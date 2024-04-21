@@ -72,7 +72,7 @@ if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])
                 <label for="password">Password</label>
             </div>
             <div>
-                <input type="checkbox" id="business_owner" name="account_type" value="<?php echo $_SESSION['account_type']; ?>" checked="checked">
+                <input type="checkbox" id="business_owner" name="account_type" value="<?php echo $_SESSION['business_owner']; ?>" checked="checked" onclick="return false;">
                 <label for="business_owner">I'm a business owner</label>
             </div>
             <div class="textinput">

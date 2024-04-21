@@ -19,7 +19,8 @@ include_once "load_businesses.php";
 </div>
 <div class="flex_container">
     <script>
-        <?php foreach ($_SESSION["history"] as $ind => $id):
+        <?php if (isset($_SESSION["history"]) && !empty($_SESSION["history"])) { foreach ($_SESSION["history"] as $ind => $id):
+        if ($id != null) {
         foreach ($_SESSION["businesses"] as $key => $value) {
             if ($value["business_id"] === $id) {
                 $business = $value;
@@ -44,7 +45,7 @@ include_once "load_businesses.php";
         function loadpage(id) {
             window.location = "view_business.php?id=" + id;
         }
-        <?php endforeach; ?>
+        <?php } endforeach; } ?>
     </script>
 </div>
 </body>
