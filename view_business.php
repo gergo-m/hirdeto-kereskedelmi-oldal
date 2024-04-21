@@ -103,7 +103,7 @@ if (isset($_GET["id"])) {
         });
     </script>
     <?php endif; ?>
-    <div><button type="button" class="send_message" onclick="window.location = 'messages.php?receiver=<?php echo $business_id; ?>';">Message <?php echo $name; ?></button></div>
+    <div><button type="button" class="send_message" onclick="window.location = 'messages.php?business_id=<?php echo $business_id; ?>';">Message <?php echo $name; ?></button></div>
 </form>
 </body>
 </html>

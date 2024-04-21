@@ -21,7 +21,7 @@ class Tmp {
                 echo 'Register';
             } else if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                 echo 'Logout';
-            } else if ($page == 'login.php') {
+            } else {
                 echo 'Login';
             } ?>
         </a>
@@ -30,7 +30,7 @@ class Tmp {
 </nav>
 <style>
     img, a img {
-        height: 18px;
+        height: 15px;
         position: relative;
         margin: 0;
     }
