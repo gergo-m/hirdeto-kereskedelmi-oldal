@@ -8,5 +8,12 @@
 </head>
 <body>
 <?php include_once "header.php"; ?>
+<body>
+<div class="welcome-container">
+    <h1>Welcome!</h1>
+    <p>You should check about and businesses.</p>
+</div>
+
+</body>
 </body>
 </html>
