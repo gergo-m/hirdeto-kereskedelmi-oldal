@@ -36,12 +36,7 @@ include_once "load_businesses.php";
                     <div class="service"><p class="service_name"><?php echo explode(Tmp::$service_name_price_separator, $service)[0] . " - " . explode(Tmp::$service_name_price_separator, $service)[1]?></p></div>
                 <?php endforeach; ?>
                 </div>
-            </div>
-            <style>
-                .business_container #business<?php echo $ind; ?>::after {
-                    content: "(since <?php echo $business["year_of_foundation"] ?>)";
-                }
-            </style>`;
+            </div>`;
         function loadpage(id) {
             window.location = "view_business.php?id=" + id;
         }
@@ -49,4 +44,24 @@ include_once "load_businesses.php";
     </script>
 </div>
 </body>
+<script>
+    <?php if (isset($_SESSION["history"]) && !empty($_SESSION["history"])) { foreach ($_SESSION["history"] as $ind => $id):
+    if ($id != null) {
+    foreach ($_SESSION["businesses"] as $key => $value) {
+        if ($value["business_id"] === $id) {
+            $business = $value;
+            break;
+        }
+    }?>
+    document.body.outerHTML +=
+        `<style>
+            .business_container #business<?php echo $ind; ?>::after {
+                content: "(since <?php echo $business["year_of_foundation"] ?>)";
+            }
+        </style>`;
+    function loadpage(id) {
+        window.location = "view_business.php?id=" + id;
+    }
+    <?php } endforeach; } ?>
+</script>
 </html>

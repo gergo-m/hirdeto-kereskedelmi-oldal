@@ -68,7 +68,7 @@ if (isset($_GET["business_id"])) {
         $user_id = explode("@", $_SESSION["email"])[0] . "_" . explode(".", explode("@", $_SESSION["email"])[1])[0];
         if (isset($_SESSION["messages"]) && $_SESSION["messages"] != null) {
         foreach ($_SESSION["messages"] as $key => $value): ?>
-        <?php if (isset($_GET["business_id"]) && $_GET["business_id"] == $value["business_id"] && ($user_id != $business["owner_id"] || ($_GET["user_to_message"] == $value["sender_id"] || $_GET["user_to_message"] == $value["receiver_id"])) /* && ($user_id == $value["sender_id"] || $user_id == $value["receiver_id"])*/) {
+        <?php if (isset($_GET["business_id"]) && $_GET["business_id"] == $value["business_id"] && ($user_id != $business["owner_id"] || ($_GET["user_to_message"] == $value["sender_id"] || $_GET["user_to_message"] == $value["receiver_id"]))) {
 
                 $business_id = $value["business_id"];
                 $message = $value["message"];?>
@@ -76,15 +76,7 @@ if (isset($_GET["business_id"])) {
                     <div class="message_property"><p class="names"><?php echo explode("_", $value["sender_id"])[0] . " -> " . explode("_", $value["receiver_id"])[0]; ?></p></div>
                     <div class="message_property"><p class="message"><?php echo $message;?></p></div>
                 </div>
-                <style>
-                    .message_container .names::after {
-                        content: "(about <?php echo $business_id; ?>)";
-                    }
-                </style>
         <?php } ?>
-
-
-
     <?php endforeach; }?>
     <form method="POST" action="messages_db.php">
         <div class="form">
@@ -98,5 +90,19 @@ if (isset($_GET["business_id"])) {
         </div>
     </form>
 </div>
-</body>
+</body><?php
+$user_id = explode("@", $_SESSION["email"])[0] . "_" . explode(".", explode("@", $_SESSION["email"])[1])[0];
+if (isset($_SESSION["messages"]) && $_SESSION["messages"] != null) {
+    foreach ($_SESSION["messages"] as $key => $value): ?>
+        <?php if (isset($_GET["business_id"]) && $_GET["business_id"] == $value["business_id"] && ($user_id != $business["owner_id"] || ($_GET["user_to_message"] == $value["sender_id"] || $_GET["user_to_message"] == $value["receiver_id"]))) {
+
+            $business_id = $value["business_id"];
+            $message = $value["message"];?>
+            <style>
+                .message_container .names::after {
+                    content: "(about <?php echo $business_id; ?>)";
+                }
+            </style>
+        <?php } ?>
+    <?php endforeach; }?>
 </html>

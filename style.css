@@ -5,6 +5,12 @@ body {
     box-sizing: border-box;
 }
 
+img, a img {
+    height: 15px;
+    position: relative;
+    margin: 0;
+}
+
 #topnav {
     overflow: hidden;
     background-color: #333;
@@ -260,10 +266,7 @@ button-container{
     margin: 1%;
     padding: 4%;
     background: lightcoral;
-<<<<<<< Updated upstream
     opacity: 80%;
-=======
->>>>>>> Stashed changes
 
 }
 .description{
@@ -272,10 +275,7 @@ button-container{
     margin: 1%;
     padding: 4%;
     background: lightblue;
-<<<<<<< Updated upstream
     opacity: 80%;
-=======
->>>>>>> Stashed changes
 }
 .add{
     font-weight: bold;
@@ -284,7 +284,6 @@ button-container{
     margin: 1%;
     padding: 4%;
     background: lightgreen;
-<<<<<<< Updated upstream
     opacity: 80%;
 }
 
@@ -307,9 +306,6 @@ button-container{
     font-size: 300% ;
 }
 
-=======
-}
-
 .aboutbutton{
     border-radius: 4px;
     background:#8f8f8f ;
@@ -319,4 +315,3 @@ button-container{
     ;
     height: auto;
 }
->>>>>>> Stashed changes

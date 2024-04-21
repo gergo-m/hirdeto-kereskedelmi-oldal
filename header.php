@@ -26,13 +26,6 @@ class Tmp {
                 echo 'Login';
             } ?>
         </a>
-        <a class="<?php if($page == 'basket.php'){echo 'active';}?>" href="./basket.php"><img src="./assets/images-icons/shopping-cart.png" alt="shopping cart"></a>
+        <a class="<?php if($page == 'basket.php'){echo 'active';}?>" href="./basket.php"><img id="basket_icon" src="./assets/images-icons/shopping-cart.png" alt="shopping cart"></a>
     </div>
 </nav>
-<style>
-    img, a img {
-        height: 15px;
-        position: relative;
-        margin: 0;
-    }
-</style>
