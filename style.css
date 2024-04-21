@@ -208,11 +208,10 @@ button.send_message:hover {
 
 }
 .adminform{
-     width: 100%;
+     width: 80%;
 }
-.Admin-button{
-    flex: auto;
-    padding: 3px;
+button-container{
+
 }
 
 .admin-container{
@@ -221,27 +220,76 @@ button.send_message:hover {
     margin: 20px;
     border: 2px solid #8f8f8f;
     border-top: #848484 solid 1px;
-    border-left: indianred solid 4px;
+    border-left: #ff0000 solid 4px;
     border-radius: 0.5rem;
     transition: transform 0.2s ease;
     width: 20%;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 
 }
 .update{
+    margin-top: 10px;
     background-color: green;
     color: white;
     text-align: center;
     text-decoration: none;
-    border-radius: 1%;
+    border-radius: 5px;
     position: absolute;
     width: 30%;
     height: auto;
+    padding: 5px;
 
 }
 
 
+/*About* felület*/
+.about{
+    display: flex;
+    flex-direction: row ;
+    max-width: 80%;
+    height: 100%;
+    margin: 10%;
+    margin-top: 1%;
+    flex: auto;
+}
+.features {
+    border-radius: 5px;
+    border: 2px solid #8f8f8f;
+    margin: 1%;
+    padding: 4%;
+    background: lightcoral;
+    opacity: 80%;
 
+}
+.description{
+    border-radius: 5px;
+    border: 2px solid #8f8f8f;
+    margin: 1%;
+    padding: 4%;
+    background: lightblue;
+    opacity: 80%;
+}
+.add{
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #8f8f8f;
+    margin: 1%;
+    padding: 4%;
+    background: lightgreen;
+    opacity: 80%;
+}
 
-
+.aboutbutton{
+    align-content: center;
+    text-align: center;
+    border-radius: 4px;
+    width: 20%;
+    background:#8f8f8f ;
+}
+.add:hover, .description:hover, .features:hover{
+    opacity: 100%;
+    ;
+    height: auto;
+}
