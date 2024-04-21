@@ -34,31 +34,20 @@
             <li>Basket</li>
             <li>History</li>
         </ul>
-<<<<<<< Updated upstream
+
         <p> <b> Be careful!</b> <br>Admins can delete inadequate ads.</p>
     </div>
     <div class="add">
         <h2>Advertise here!</h2>
-        <p>Look for the Businesses in the website </p>
+
         <a href="businesses.php" >
-            <button type="button" class="aboutbutton">Go on!</button>
+            <p>Look for the Businesses in the website </p>
         </a>
         <?php if(session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])):?>
         <a href="login.php" >
             <p>Or log in and add you own one.</p>
-            <button type="button" class="aboutbutton">Login</button>
         </a>
         <?php endif; ?>
-=======
-        <p>Be careful! <br>Admins can delete inadequate ads.</p>
-    </div>
-    <div class="add">
-        <h2>Advertise here!</h2>
-        <p>Look for the businesses in the website or add you own one in the Businesses tab.</p>
-        <a href="businesses.php" >
-            <button type="button" class="aboutbutton">Go on!</button>
-        </a>
->>>>>>> Stashed changes
     </div>
 
 </div>
