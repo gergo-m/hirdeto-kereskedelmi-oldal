@@ -20,6 +20,7 @@
 .business_container:hover {
     transform: scale(1.02);
     transition: transform 0.4s ease;
+    cursor: pointer;
 }
 
 .business_name {
@@ -71,7 +72,7 @@
     font-size: 14px;
 }
 
-.service_name::after {
+/*.service_name::after {
     content: "🛒";
     padding-left: 10px;
     font-weight: lighter;
@@ -82,4 +83,4 @@
 
 .service:hover {
     cursor: pointer;
-}
+}*/

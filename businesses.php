@@ -16,12 +16,12 @@
     <script>
         <?php foreach ($_SESSION["businesses"] as $key => $value):?>
         document.querySelector(".flex_container").innerHTML +=
-            `<div class="business_container">
-                <div class="business_property" onclick="loadpage('<?php echo $value["business_id"]; ?>')"><p class="business_name" id="business<?php echo $key; ?>"><?php echo $value["name"]; ?></p></div>
+            `<div class="business_container" onclick="loadpage('<?php echo $value["business_id"]; ?>')">
+                <div class="business_property"><p class="business_name" id="business<?php echo $key; ?>"><?php echo $value["name"]; ?></p></div>
                 <div class="business_property"><p class="business_description"><?php echo $value["description"]; ?></p></div>
                 <div class="business_property business-services">
                 <?php foreach (explode(Tmp::$service_separator, $value["services"]) as $index => $service): ?>
-                    <div class="service" title="Add to basket" onclick="addToBasket()"><p class="service_name"><?php echo explode(Tmp::$service_name_price_separator, $service)[0] . " - " . explode(Tmp::$service_name_price_separator, $service)[1]?></p></div>
+                    <div class="service"><p class="service_name"><?php echo explode(Tmp::$service_name_price_separator, $service)[0] . " - " . explode(Tmp::$service_name_price_separator, $service)[1]?></p></div>
                 <?php endforeach; ?>
                 </div>
             </div>
