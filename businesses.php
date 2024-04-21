@@ -33,27 +33,8 @@ include_once "load_businesses.php";
         function loadpage(id) {
             window.location = "view_business.php?id=" + id;
         }
-        function addToBasket() {
-            <?php
-            /*$basket_contents = array();
-            if (isset($_SESSION["basket_contents"]) && $_SESSION["basket_contents"] != null) {
-                $basket_contents = explode(Tmp::$service_separator, $_SESSION["basket_contents"]);
-                $basket_contents[] = $service;
-                $_SESSION["basket_contents"] = implode(Tmp::$service_separator, $basket_contents);
-            }
-            include_once "db_connection.php";
-            $conn = $GLOBALS['db_connection'];
-            $basket_contents_to_add = $_SESSION["basket_contents"];
-            $sql = "UPDATE `users` SET `basket_contents`='$basket_contents_to_add' WHERE `email`=='$_SESSION[email]'";
-            $conn->query($sql);
-            */?>
-            alert("Service has been added to your basket!");
-        }
         <?php endforeach; ?>
-
     </script>
-
-
         <?php
         if (isset($_SESSION['id']) && isset($_SESSION['email'])&& $_SESSION["email"]=='admin@admin.com') : ?>
             <div class="admin-container">
