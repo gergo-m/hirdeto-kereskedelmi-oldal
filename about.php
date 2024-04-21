@@ -38,10 +38,16 @@
     </div>
     <div class="add">
         <h2>Advertise here!</h2>
-        <p>Look for the businesses in the website or add you own one in the Businesses tab.</p>
+        <p>Look for the Businesses in the website </p>
         <a href="businesses.php" >
             <button type="button" class="aboutbutton">Go on!</button>
         </a>
+        <?php if(session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])):?>
+        <a href="login.php" >
+            <p>Or log in and add you own one.</p>
+            <button type="button" class="aboutbutton">Login</button>
+        </a>
+        <?php endif; ?>
     </div>
 
 </div>

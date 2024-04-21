@@ -293,3 +293,10 @@ button-container{
     ;
     height: auto;
 }
+
+/*home*/
+.welcome-container {
+    text-align: center;
+    font-size: 300% ;
+}
+
