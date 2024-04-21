@@ -22,7 +22,6 @@ if(isset($_POST["update"]) ){
     $yof = $_POST["yof"];
     $services = $_POST["service"];
     $update_query="UPDATE businesses SET name='$name', description='$description', year_of_foundation='$yof', services='$services' WHERE id='$id'";
-    echo $update_query;
     mysqli_query($GLOBALS["db_connection"], $update_query);
 }
 ?>
