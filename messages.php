@@ -11,6 +11,10 @@
 <?php
 include_once "header.php";
 include_once "db_connection.php";
+if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
 if (isset($_GET["business_id"])) {
     $business_id_receiver = $_GET["business_id"];
     foreach ($_SESSION["businesses"] as $key => $value) {

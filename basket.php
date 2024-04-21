@@ -11,6 +11,10 @@
 <?php
 include_once "header.php";
 include_once "load_businesses.php";
+if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 <div class="flex_container">
     <script>

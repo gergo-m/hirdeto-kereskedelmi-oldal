@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "header.php"; ?>
+<?php
+include_once "header.php";
+if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <?php if (isset($_GET["msg"])) { ?>
     <p class="msg"><?php echo $_GET["msg"]; ?></p>
 <?php } ?>

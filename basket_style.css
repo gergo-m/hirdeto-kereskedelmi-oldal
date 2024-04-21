@@ -6,7 +6,7 @@
     margin-top: 1%;
 }
 
-.message_container {
+.item_container {
     padding: 6px 16px;
     margin: 20px;
     border: 2px solid #ccc;
@@ -17,17 +17,17 @@
     width: 20%;
 }
 
-.message_container:hover {
+.item_container:hover {
     transform: scale(1.02);
     transition: transform 0.4s ease;
 }
 
-.names {
+.business_name {
     font-weight: bold;
     font-size: 16px;
 }
 
-.message_container .names::after {
+.item_container .business_name::after {
     content: "(since ####)";
     padding-left: 10px;
     font-weight: lighter;
@@ -36,8 +36,8 @@
     transition: opacity 0.5s ease;
 }
 
-.message_container:hover .names::after,
-.message_container:hover .service_name::after {
+.item_container:hover .business_name::after,
+.item_container:hover .service_name::after {
     opacity: 1;
 }
 
@@ -46,8 +46,8 @@
     to { opacity: 0; }
 }
 
-.message_container:not:hover .names::after,
-.message_container:not:hover .service_name::after {
+.item_container:not:hover .business_name::after,
+.item_container:not:hover .service_name::after {
     animation: fadeOut 0.3s ease;
 }
 
