@@ -153,6 +153,28 @@ hr {
     border: 1px solid #eee;
     margin-bottom: 20px;
 }
+button.send_message::before {
+    content: "📜";
+    padding-right: 7px;
+}
+button.send_message {
+    margin: 10px 0 20px 0;
+    color: #444;
+    font-size: 12px;
+    display: block;
+    height: 40px;
+    background: transparent;
+    border: solid 1px #e1e5ee;
+    border-radius: 0.5rem;
+    padding: 0 15px;
+}
+button.send_message:hover {
+    background-color: #eeffee;
+    color: darkgreen;
+    border-color: #90ee90;
+    cursor: pointer;
+}
+
 
 
 /*Admin felület formázása*/

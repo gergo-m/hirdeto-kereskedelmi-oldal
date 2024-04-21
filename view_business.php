@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Submit your business</title>
+    <title><?php if (isset($_GET["id"])) { echo $_GET["id"]; } ?></title>
     <link rel="icon" type="image/x-icon" href="./assets/images-icons/favicon.webp">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -103,6 +103,7 @@ if (isset($_GET["id"])) {
         });
     </script>
     <?php endif; ?>
+    <div><button type="button" class="send_message" onclick="window.location = 'messages.php?receiver=<?php echo $business_id; ?>';">Message <?php echo $name; ?></button></div>
 </form>
 </body>
 </html>
