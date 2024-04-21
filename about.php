@@ -22,6 +22,7 @@ include_once "topnav.php"; ?>
                 <li>As an entrepreneur, you can create ads for the website.</li>
                 <li>Users can register either as a customer or as a businessman.</li>
                 <li>You can communicate with other users, you can put items in the basket or view your history.</li>
+                <li>You can modify your profile, too.</li>
             </ul>
         <p>We hope the site helps the customers find their own sellers. </p>
     </div>
@@ -42,7 +43,7 @@ include_once "topnav.php"; ?>
         <h2>Advertise here!</h2>
 
         <a href="businesses.php" >
-            <p>Look for the Businesses in the website </p>
+            <p>Look for the Businesses in the website! </p>
         </a>
         <?php if(session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])):?>
         <a href="login.php" >
