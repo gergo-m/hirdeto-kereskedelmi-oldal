@@ -129,6 +129,31 @@ input:focus {
     color: #000;
 }
 
+/*view business formatting*/
+button.add_to_basket {
+    margin: 10px 0 20px 0;
+    color: #444;
+    font-size: 12px;
+    display: block;
+    height: 40px;
+    background: transparent;
+    border: solid 1px #e1e5ee;
+    border-radius: 0.5rem;
+    padding: 0 15px;
+}
+button.add_to_basket:hover {
+    background-color: #eee;
+    color: indianred;
+    border-color: #ee6e6e;
+    cursor: pointer;
+}
+hr {
+    width: 100%;
+    left: 50%;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
 
 /*Admin felület formázása*/
  .delet-button{

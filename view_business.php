@@ -67,13 +67,15 @@ if (isset($_GET["id"])) {
     </div>
     <div class="business-services">
         <?php foreach (explode(Tmp::$service_separator, $services) as $index => $service): ?>
+            <hr>
             <div class="textinput service_name">
                 <input type="text" name="service_names[]" value="<?php echo explode(Tmp::$service_name_price_separator, $service)[0]; ?>" autocomplete="off" <?php if ($readonly) {echo "readonly";} ?>>
-                <label>Service name</label>
+                <label>Service name (click to add to basket)</label>
             </div>
             <div class="textinput service-price">
                 <input type="text" name="service_prices[]" value="<?php echo explode(Tmp::$service_name_price_separator, $service)[1]; ?>" autocomplete="off" <?php if ($readonly) {echo "readonly";} ?>>
                 <label>Service price</label>
+                <div><button type="button" class="add_to_basket" onclick="window.location = 'add_to_basket_db.php?business_id=<?php echo $business_id; ?>&service_index=<?php echo $index; ?>';">Add <?php echo explode(Tmp::$service_name_price_separator, $service)[0]; ?> to the basket</button></div>
             </div>
             <div class="service_separator" hidden></div>
         <?php endforeach; ?>
@@ -83,7 +85,6 @@ if (isset($_GET["id"])) {
         <button id="add_service">+</button>
     </div>
     <input type="submit" value="Submit" name="submit">
-    <?php endif; ?>
     <script>
         <?php $_SESSION["services_count"]++; ?>
         document.querySelector('#add_service').addEventListener("click", function (event) {
@@ -101,6 +102,7 @@ if (isset($_GET["id"])) {
                 <div class="service_separator" hidden></div>`;
         });
     </script>
+    <?php endif; ?>
 </form>
 </body>
 </html>

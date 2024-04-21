@@ -1,0 +1,86 @@
+.flex_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 1%;
+}
+
+.item_container {
+    padding: 6px 16px;
+    margin: 20px;
+    border: 2px solid #ccc;
+    border-top: #eee solid 1px;
+    border-left: indianred solid 4px;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+    width: 20%;
+}
+
+.item_container:hover {
+    transform: scale(1.02);
+    transition: transform 0.4s ease;
+}
+
+.business_name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.item_container .business_name::after {
+    content: "(since ####)";
+    padding-left: 10px;
+    font-weight: lighter;
+    color: #666;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.item_container:hover .business_name::after,
+.item_container:hover .service_name::after {
+    opacity: 1;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.item_container:not:hover .business_name::after,
+.item_container:not:hover .service_name::after {
+    animation: fadeOut 0.3s ease;
+}
+
+.service {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.service_name {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.service:hover {
+    cursor: pointer;
+}
+
+button.remove_from_basket {
+    margin: 20px 0 10px 0;
+    color: #444;
+    font-size: 12px;
+    display: block;
+    height: 40px;
+    background: transparent;
+    border: solid 1px #e1e5ee;
+    border-radius: 0.5rem;
+    padding: 0 15px;
+}
+button.remove_from_basket:hover {
+    background-color: #eee;
+    color: indianred;
+    border-color: #ee6e6e;
+    cursor: pointer;
+}
