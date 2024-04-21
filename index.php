@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "header.php"; ?>
+<?php include_once "header.php";
+include_once "topnav.php";
+include_once "db_connection.php"; ?>
 <body>
 <div class="welcome-container">
     <h1>Welcome!</h1>

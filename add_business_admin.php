@@ -8,9 +8,10 @@
 </head>
 <body>
 <?php
-include_once "db_connection.php";
-include_once "header.php";?>
-<form action="add_busines_admin.php" method="post" class="adminform">
+include_once "header.php";
+include_once "topnav.php";
+include_once "db_connection.php";?>
+<form action="add_business_admin.php" method="post" class="adminform">
     <table class="change-tabel">
         <tr>
             <td colspan='5'>Add new busines line to the side. </td>

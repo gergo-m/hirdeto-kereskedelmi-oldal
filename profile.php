@@ -9,6 +9,7 @@
 </head>
 <body>
 <?php include_once "header.php";
+include_once "topnav.php";
 if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])) {
     header("Location: login.php");
     exit();
@@ -20,8 +21,8 @@ if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])
         <a href="history.php">History</a>
     </div>
     <div class="profile-info">
-        <?php if(isset($_GET['error'])) { ?>
-            <p class="error"><?php echo $_GET['error']; ?></p>
+        <?php if(isset($_GET['msg'])) { ?>
+            <p class="error"><?php echo $_GET['msg']; ?></p>
         <?php } ?>
         <form method="POST" action="change_details.php" enctype="multipart/form-data">
             <img id="profile_photo" src="./assets/profile-pictures/<?php echo $_SESSION["profile_picture_name"]; ?>" alt="profile icon" title="upload profile picture">

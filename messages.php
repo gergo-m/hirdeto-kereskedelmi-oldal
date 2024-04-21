@@ -6,24 +6,43 @@
     <link rel="icon" type="image/x-icon" href="./assets/images-icons/favicon.webp">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="messages_style.css">
+    <?php include_once "header.php"; ?>
+    <style>
+        <?php
+            if (isset($_GET["business_id"])) {
+                $business_id_receiver = $_GET["business_id"];
+                foreach ($_SESSION["businesses"] as $key => $value) {
+                    if ($business_id_receiver == $value["business_id"]) {
+                        $business = $value;
+                        break;
+                    }
+                }
+            }
+            $user_id = explode("@", $_SESSION["email"])[0] . "_" . explode(".", explode("@", $_SESSION["email"])[1])[0];
+            if (isset($_SESSION["messages"]) && $_SESSION["messages"] != null) {
+                foreach ($_SESSION["messages"] as $key => $value):
+                    if (isset($_GET["business_id"]) && $_GET["business_id"] == $value["business_id"] && ($user_id != $business["owner_id"] || ($_GET["user_to_message"] == $value["sender_id"] || $_GET["user_to_message"] == $value["receiver_id"]))) {
+
+                        $business_id = $value["business_id"];
+                        $message = $value["message"];
+                        echo ".message_container .names::after {";
+                            echo "content: \"(about $business_id)\";";
+                        echo "}";
+                    } endforeach;
+            }?>
+    </style>
+    <?php
+    include_once "topnav.php";
+    include_once "db_connection.php";
+    ?>
 </head>
 <body>
 <?php
-include_once "header.php";
-include_once "db_connection.php";
 if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])) {
     header("Location: login.php");
     exit();
 }
 if (isset($_GET["business_id"])) {
-    $business_id_receiver = $_GET["business_id"];
-    foreach ($_SESSION["businesses"] as $key => $value) {
-        if ($business_id_receiver == $value["business_id"]) {
-            $business = $value;
-            break;
-        }
-    }
-
     if (empty($business)) {
         echo "No business exists with that ID";
     }
@@ -31,8 +50,7 @@ if (isset($_GET["business_id"])) {
     $user_id = explode("@", $_SESSION["email"])[0] . "_" . explode(".", explode("@", $_SESSION["email"])[1])[0];
 
     // get messages
-    $sqlGetMessages = "SELECT * FROM messages
-                WHERE (sender_id='$user_id' OR receiver_id='$user_id')";
+    $sqlGetMessages = "SELECT * FROM messages WHERE (sender_id='$user_id' OR receiver_id='$user_id')";
     $result = mysqli_query($GLOBALS["db_connection"], $sqlGetMessages);
 
     if (!$result) {
@@ -91,22 +109,4 @@ if (isset($_GET["business_id"])) {
     </form>
 </div>
 </body>
-<script>
-    <?php
-    $user_id = explode("@", $_SESSION["email"])[0] . "_" . explode(".", explode("@", $_SESSION["email"])[1])[0];
-    if (isset($_SESSION["messages"]) && $_SESSION["messages"] != null) {
-        foreach ($_SESSION["messages"] as $key => $value): ?>
-            <?php if (isset($_GET["business_id"]) && $_GET["business_id"] == $value["business_id"] && ($user_id != $business["owner_id"] || ($_GET["user_to_message"] == $value["sender_id"] || $_GET["user_to_message"] == $value["receiver_id"]))) {
-
-                $business_id = $value["business_id"];
-                $message = $value["message"];?>
-                document.body.outerHTML +=
-                `<style>
-                    .message_container .names::after {
-                        content: "(about <?php echo $business_id; ?>)";
-                    }
-                </style>`;
-            <?php } ?>
-    <?php endforeach; }?>
-</script>
 </html>

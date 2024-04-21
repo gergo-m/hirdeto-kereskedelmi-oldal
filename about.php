@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "header.php"; ?>
+<?php include_once "header.php";
+include_once "topnav.php"; ?>
 
 <h1>
     About the webside

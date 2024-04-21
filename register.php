@@ -1,15 +1,3 @@
-<?php
-$uzenet = "";
-if (isset($_POST["submit"])) {
-    if (isset($_POST["first_name"]) && trim($_POST["first_name"]) !== "") {
-        $beirt_nev = $_POST["first_name"];
-        $uzenet = "A beírt név: $beirt_nev";
-    } else {
-        $uzenet = "<strong>Hiba!</strong> Írj be egy nevet!";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +7,12 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "header.php"; ?>
+<?php include_once "header.php";
+include_once "topnav.php"; ?>
 <h1>Welcome!</h1>
 <h2>Register an account below:</h2>
-<?php if(isset($_GET['error'])) { ?>
-    <p class="error"><?php echo $_GET['error']; ?></p>
+<?php if(isset($_GET['msg'])) { ?>
+    <p class="error"><?php echo $_GET['msg']; ?></p>
 <?php } ?>
 <form method="POST" action="register_db.php">
     <div class="textinput">
@@ -56,6 +45,5 @@ if (isset($_POST["submit"])) {
     </div>
     <input type="submit" value="Continue" name="submit">
 </form>
-<?php echo "<p>" . $uzenet . "</p>"; ?>
 </body>
 </html>

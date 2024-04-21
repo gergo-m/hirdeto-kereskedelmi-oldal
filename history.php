@@ -11,6 +11,7 @@
 <body>
 <?php
 include_once "header.php";
+include_once "topnav.php";
 include_once "load_businesses.php";
 ?>
 <div class="sidenav">

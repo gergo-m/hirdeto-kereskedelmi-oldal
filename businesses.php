@@ -6,20 +6,20 @@
     <link rel="icon" type="image/x-icon" href="./assets/images-icons/favicon.webp">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="businesses_style.css">
+    <?php include_once "header.php"; ?>
+    <style>
+        <?php
+        foreach ($_SESSION["businesses"] as $key => $value):
+            echo ".business_container #business$key::after {";
+                    echo "content: \"(since " . $value["year_of_foundation"] . ")\";";
+            echo "}";
+        endforeach;
+        ?>
+    </style>
     <?php
-    include_once "header.php";
+    include_once "topnav.php";
     include_once "load_businesses.php";
     ?>
-    <?php foreach ($_SESSION["businesses"] as $key => $value):?>
-        <script>
-            document.head.innerHTML +=
-                `<style>
-                .business_container #business<?php echo $key; ?>::after {
-                    content: "(since <?php echo $value["year_of_foundation"] ?>)";
-                }
-            </style>`;
-        </script>
-    <?php endforeach; ?>
 </head>
 <body>
 <div class="flex_container">
@@ -29,9 +29,7 @@
         </div>
     <?php endif; ?>
     <?php foreach ($_SESSION["businesses"] as $key => $value):?>
-    <script>
-        document.querySelector('.flex_container').innerHTML +=
-            `<div class="business_container" onclick="loadpage('<?php echo $value["business_id"]; ?>')">
+            <div class="business_container" onclick="loadpage('<?php echo $value["business_id"]; ?>')">
                 <div class="business_property"><p class="business_name" id="business<?php echo $key; ?>"><?php echo $value["name"]; ?></p></div>
                 <div class="business_property"><p class="business_description"><?php echo $value["description"]; ?></p></div>
                 <div class="business_property business-services">
@@ -39,11 +37,12 @@
                     <div class="service"><p class="service_name"><?php echo explode(Tmp::$service_name_price_separator, $service)[0] . " - " . explode(Tmp::$service_name_price_separator, $service)[1]?></p></div>
                 <?php endforeach; ?>
                 </div>
-            </div>`;
+            </div>
+        <script>
             function loadpage(id) {
                 window.location = "view_business.php?id=" + id;
             }
-    </script>
+        </script>
     <?php endforeach; ?>
 
         <?php
