@@ -18,6 +18,7 @@ include_once "header.php";
     <?php
     $sql = "SELECT * FROM businesses";
     $result = mysqli_query($GLOBALS["db_connection"], $sql);
+
     echo "<tr>";
     echo "<td colspan='5'>Businesses</td>";
     echo "</tr>";
@@ -35,19 +36,20 @@ include_once "header.php";
 
     ?>
 </table>
-
+    <input type='submit' name='update' value='UPDATE' class='update'/>
 
 </form>
-<input type='submit' name='update' value='UPDATE' class='update'/>
+
 <?php
-if(isset($_POST["update"]) && $_POST["update"] != ""){
+if(isset($_POST["update"]) ){
     $id = $_POST["custId"];
     $name = $_POST["name"];
     $description = $_POST["description"];
     $yof = $_POST["yof"];
     $services = $_POST["service"];
-    $update_query="UPDATE businesbusinesses SET name='$name', description='$description', year_of_foundation='$yof', services='$services' WHERE id='$id'";
+    $update_query="UPDATE businesses SET name='$name', description='$description', year_of_foundation='$yof', services='$services' WHERE id='$id'";
     mysqli_query($GLOBALS["db_connection"], $update_query);
+
 
 }
 

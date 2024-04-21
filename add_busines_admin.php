@@ -47,7 +47,7 @@ include_once "header.php";?>
         $insert_query = "INSERT INTO businesses (id, name, description, year_of_foundation, services) 
                      VALUES ('$new_id', '$name', '$description','$yof', '$services')";
         mysqli_query($GLOBALS["db_connection"], $insert_query);
-
+        header("Refresh: 5; url=add_business_admin.php");
     }
 ?>
 </body>
