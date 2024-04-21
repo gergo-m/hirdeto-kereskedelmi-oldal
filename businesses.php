@@ -6,12 +6,22 @@
     <link rel="icon" type="image/x-icon" href="./assets/images-icons/favicon.webp">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="businesses_style.css">
+    <?php
+    include_once "header.php";
+    include_once "load_businesses.php";
+    ?>
+    <?php foreach ($_SESSION["businesses"] as $key => $value):?>
+        <script>
+            document.head.innerHTML +=
+                `<style>
+                .business_container #business<?php echo $key; ?>::after {
+                    content: "(since <?php echo $value["year_of_foundation"] ?>)";
+                }
+            </style>`;
+        </script>
+    <?php endforeach; ?>
 </head>
 <body>
-<?php
-include_once "header.php";
-include_once "load_businesses.php";
-?>
 <div class="flex_container">
     <?php if (isset($_SESSION["email"]) && isset($_SESSION["business_owner"]) && $_SESSION["business_owner"] == 1): ?>
         <div class="business_container submit_container" onclick="window.location = 'submit_business.php'">
@@ -29,12 +39,7 @@ include_once "load_businesses.php";
                     <div class="service"><p class="service_name"><?php echo explode(Tmp::$service_name_price_separator, $service)[0] . " - " . explode(Tmp::$service_name_price_separator, $service)[1]?></p></div>
                 <?php endforeach; ?>
                 </div>
-            </div>
-            <style>
-                .business_container #business<?php echo $key; ?>::after {
-                    content: "(since <?php echo $value["year_of_foundation"] ?>)";
-                }
-            </style>`;
+            </div>`;
             function loadpage(id) {
                 window.location = "view_business.php?id=" + id;
             }
