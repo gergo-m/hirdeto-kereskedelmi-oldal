@@ -12,7 +12,7 @@
     <p class="error"><?php echo $_GET["error"]; ?></p>
 <?php } ?>
 <h1>Submit your business below:</h1>
-<form method="POST" action="submit_business_db.php">
+<form method="POST" action="">
     <div class="textinput">
         <input type="text" id="business_name" name="business_name" placeholder="My business" autocomplete="off">
         <label for="business_name">Business name</label>
@@ -28,10 +28,6 @@
     <div class="textinput">
         <input type="text" id="owner_id" name="owner_id" value="<?php if(isset($_SESSION["email"])) { echo explode("@", $_SESSION["email"])[0]; } else { echo 'ERROR, please log in!'; } ?>" autocomplete="off" readonly>
         <label for="owner_id">Owner ID</label>
-    </div>
-    <div class="textinput">
-        <input type="text" id="business_id" name="business_id" placeholder="A unique ID for your business (e.g. mybusiness001)" autocomplete="off">
-        <label for="business_id">Business ID</label>
     </div>
     <div class="business-services">
         <div class="textinput service_name">

@@ -1,5 +1,5 @@
 <?php
-include_once "db-connection.php";
+include_once "db_connection.php";
 $sql = "SELECT * FROM businesses";
 $result = mysqli_query($GLOBALS["db_connection"], $sql);
 

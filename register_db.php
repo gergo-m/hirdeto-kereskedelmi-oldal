@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "db-connection.php";
+include_once "db_connection.php";
 if (isset($_POST["first_name"])
     && isset($_POST["last_name"])
     && isset($_POST["email"])

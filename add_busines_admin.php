@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-include_once "db-connection.php";
+include_once "db_connection.php";
 include_once "header.php";?>
 <form action="add_busines_admin.php" method="post" class="adminform">
     <table class="change-tabel">
