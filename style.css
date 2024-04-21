@@ -5,6 +5,12 @@ body {
     box-sizing: border-box;
 }
 
+img, a img {
+    height: 15px;
+    position: relative;
+    margin: 0;
+}
+
 #topnav {
     overflow: hidden;
     background-color: #333;
@@ -261,8 +267,6 @@ button-container{
     padding: 4%;
     background: lightcoral;
     opacity: 80%;
-
-
 }
 .description{
     border-radius: 5px;
@@ -270,9 +274,7 @@ button-container{
     margin: 1%;
     padding: 4%;
     background: lightblue;
-
     opacity: 80%;
-
 }
 .add{
     font-weight: bold;
@@ -297,6 +299,10 @@ button-container{
     font-size: 300% ;
 }
 
+.aboutbutton{
+    border-radius: 4px;
+    background:#8f8f8f ;
+}
 
 .add:hover, .description:hover, .features:hover{
     opacity: 100%;

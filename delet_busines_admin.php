@@ -9,8 +9,9 @@
 </head>
 <body>
 <?php
-include_once "db_connection.php";
-include_once "header.php"; ?>
+include_once "header.php";
+include_once "topnav.php";
+include_once "db_connection.php"; ?>
 
 <form action="delet_busines_admin.php" method="post" class="adminform">
     <table class="delet-tabel">

@@ -9,6 +9,7 @@
 </head>
 <body>
 <?php include_once "header.php";
+include_once "topnav.php";
 if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])) {
     header("Location: login.php");
     exit();
@@ -20,25 +21,9 @@ if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])
         <a href="history.php">History</a>
     </div>
     <div class="profile-info">
-        <?php if(isset($_GET['error'])) { ?>
-            <p class="error"><?php echo $_GET['error']; ?></p>
+        <?php if(isset($_GET['msg'])) { ?>
+            <p class="error"><?php echo $_GET['msg']; ?></p>
         <?php } ?>
-        <!--<form name="pfp_preview" method="POST" action="preview_pfp.php" enctype="multipart/form-data">
-            <div>
-                <img id="profile_photo" src="<?php if (isset($_GET["img_tmp_name"])) { echo $_GET["img_tmp_name"]; } else { echo './assets/images-icons/profile-outline.png'; }?>" alt="profile icon" title="upload profile picture">
-                <h1>Profile</h1>
-                <label><input type="file" id="profile_picture_preview" name="profile_picture_preview" hidden></label>
-                <script>
-                    document.querySelector('img#profile_photo').addEventListener('click', function () {
-                        document.querySelector('input#profile_picture_preview').click();
-                    });
-                    document.querySelector('input[type=file]#profile_picture_preview').addEventListener('change', function () {
-                        document.querySelector('button#submit_preview').click();
-                    });
-                </script>
-                <button type="submit" id="submit_preview" name="preview" hidden></button>
-            </div>
-        </form>-->
         <form method="POST" action="change_details.php" enctype="multipart/form-data">
             <img id="profile_photo" src="./assets/profile-pictures/<?php echo $_SESSION["profile_picture_name"]; ?>" alt="profile icon" title="upload profile picture">
             <h1>Profile</h1>

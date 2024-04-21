@@ -9,6 +9,7 @@
 <body>
 <?php
 include_once "header.php";
+include_once "topnav.php";
 if (session_id() === "" || !isset($_SESSION['id']) || !isset($_SESSION['email'])) {
     header("Location: login.php");
     exit();

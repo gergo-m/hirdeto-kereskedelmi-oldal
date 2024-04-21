@@ -9,11 +9,12 @@
 </head>
 <body>
 <?php
-include_once "db_connection.php";
 include_once "header.php";
+include_once "topnav.php";
+include_once "db_connection.php";
 ?>
 
-<form action="change_busines_admin.php" method="post" class="adminform">
+<form action="change_business_admin.php" method="post" class="adminform">
 <table class="change-tabel">
     <?php
     $sql = "SELECT * FROM businesses";

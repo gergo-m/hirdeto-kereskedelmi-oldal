@@ -1,5 +1,6 @@
 <?php
 include_once "header.php";
+include_once "topnav.php";
 include_once "db_connection.php";
 if (isset($_GET["business_id"])
     && isset($_GET["service_index"])) {
